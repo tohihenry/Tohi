@@ -27,33 +27,33 @@
         }
 
         /* Centered Image */
-        .animated-image {
+        .signature-image {
             width: 100%;
             height: auto;
             display: block;
         }
 
-        /* Water Droplet Animation on Load */
+        /* Water Droplet Animation */
         @keyframes waterDrop {
             0% { transform: scale(0); opacity: 0; }
             60% { transform: scale(1.2); opacity: 1; }
             100% { transform: scale(1); opacity: 1; }
         }
 
-        /* Clickable Areas (Now with Animation) */
+        /* Clickable Overlay Areas */
         .clickable {
             position: absolute;
-            opacity: 0;
-            transform: scale(0);
-            animation: waterDrop 1.2s ease-out forwards;
-            transition: transform 0.3s ease, opacity 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            transition: transform 0.3s ease;
             z-index: 10;
+            animation: waterDrop 1.2s ease-out forwards;
         }
 
         /* Hover Effect */
         .clickable:hover {
             transform: scale(1.2);
-            background-color: rgba(255, 255, 255, 0.2); /* Highlight effect */
+            background-color: rgba(255, 255, 255, 0.3);
         }
 
         /* Tooltip Styling */
@@ -100,7 +100,7 @@
 <body>
     <div class="image-container">
         <!-- Centered Image -->
-        <img src="https://i.imgur.com/2K8nxOD.png" alt="Tohi Henry - Signature Block" class="animated-image">
+        <img src="https://i.imgur.com/2K8nxOD.png" alt="Tohi Henry - Signature Block" class="signature-image" usemap="#image-map">
 
         <!-- Clickable Areas with Hover & Animation -->
         <a href="https://qrco.de/bfDXap" class="clickable vr-card" title="VR Card" target="_blank"></a>
