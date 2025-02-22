@@ -11,33 +11,43 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: center; /* Centers content horizontally */
+            align-items: center; /* Centers content vertically */
             height: 100vh;
             background-color: #f4f4f4;
             position: relative;
         }
 
-        /* Image Container */
+        /* Center Image Properly */
         .image-container {
             position: relative;
             width: 100%;
-            max-width: 800px; /* Adjust as needed */
+            max-width: 900px; /* Adjust max width as needed */
+            display: flex;
+            justify-content: center;
         }
 
-        /* Water Droplet Animation for Clickable Areas */
+        /* Center the Image */
+        .animated-image {
+            width: 100%;
+            max-width: 900px; /* Adjust to match image width */
+            height: auto;
+            display: block;
+        }
+
+        /* Water Droplet Animation */
         @keyframes waterDrop {
             0% {
                 opacity: 0;
-                transform: scale(0); /* Start very small */
+                transform: scale(0);
             }
             60% {
                 opacity: 1;
-                transform: scale(1.2); /* Slightly overshoot */
+                transform: scale(1.2);
             }
             100% {
                 opacity: 1;
-                transform: scale(1); /* Settle to normal size */
+                transform: scale(1);
             }
         }
 
@@ -47,10 +57,10 @@
             opacity: 0;
             transform: scale(0);
             animation: waterDrop 1.2s ease-out forwards;
-            z-index: 10; /* Ensure clickable areas are above the image */
+            z-index: 10;
         }
 
-        /* Delay animation for each clickable area */
+        /* Clickable Areas: Adjusting Positions */
         .vr-card { top: 10px; left: 10px; width: 120px; height: 120px; animation-delay: 0.2s; }
         .phone { top: 250px; left: 470px; width: 300px; height: 50px; animation-delay: 0.4s; }
         .email { top: 310px; left: 470px; width: 300px; height: 50px; animation-delay: 0.6s; }
@@ -67,16 +77,17 @@
         .henare-electrical { top: 545px; left: 1120px; width: 120px; height: 76px; animation-delay: 2.8s; }
         .henare-strategic { top: 544px; left: 733px; width: 126px; height: 74px; animation-delay: 3.0s; }
 
-        /* Hover Effect: Make Clickable Areas Pop When Hovered */
+        /* Hover Effect */
         .clickable:hover {
             transform: scale(1.2);
             transition: transform 0.3s ease;
         }
+
     </style>
 </head>
 <body>
     <div class="image-container">
-        <!-- Main Image Hosted on Imgur -->
+        <!-- Centered Image -->
         <img src="https://i.imgur.com/2K8nxOD.png" alt="Tohi Henry - Signature Block" class="animated-image">
 
         <!-- Clickable Areas -->
