@@ -5,43 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tohi Henry Signature Block</title>
     <style>
-        /* Basic Styling */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-            position: relative;
-        }
-
-        /* Image Container */
-        .image-container {
-            position: relative;
-            width: 90%;
-            max-width: 900px;
-            display: flex;
-            justify-content: center;
-        }
-
-        /* Ensure Image Scales Properly */
-        .animated-image {
-            width: 100%;
+        /* Ensuring the image scales properly */
+        img {
+            max-width: 100%;
             height: auto;
             display: block;
-        }
-
-        /* Clickable Areas - Now with Animation */
-        .clickable {
-            position: absolute;
-            opacity: 0;
-            transform: scale(0);
-            animation: waterDrop 1.5s ease-out forwards;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-            z-index: 10;
+            margin: auto;
         }
 
         /* Water Droplet Animation */
@@ -51,76 +20,42 @@
             100% { opacity: 1; transform: scale(1); }
         }
 
-        /* Hover Effect - Zoom in + Tooltip */
-        .clickable:hover {
+        /* Clickable Areas */
+        area {
+            opacity: 0;
+            transform: scale(0);
+            animation: waterDrop 1.5s ease-out forwards;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Hover Effect - Tooltip & Zoom */
+        area:hover {
             transform: scale(1.2);
             opacity: 1;
         }
 
-        /* Tooltip (Text on Hover) */
-        .clickable::after {
-            content: attr(title);
-            position: absolute;
-            background: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 12px;
-            white-space: nowrap;
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.2s ease, visibility 0.2s ease;
-        }
-
-        /* Position Tooltip Above Clickable Area */
-        .clickable:hover::after {
-            visibility: visible;
-            opacity: 1;
-            top: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Adjusted Clickable Areas */
-        .vr-card { top: 1px; left: 0px; width: 124px; height: 123px; animation-delay: 0.2s; }
-        .phone { top: 255px; left: 471px; width: 296px; height: 50px; animation-delay: 0.4s; }
-        .email { top: 307px; left: 472px; width: 295px; height: 44px; animation-delay: 0.6s; }
-        .website { top: 353px; left: 472px; width: 354px; height: 46px; animation-delay: 0.8s; }
-        .service-area { top: 401px; left: 472px; width: 354px; height: 43px; animation-delay: 1.0s; }
-        .nzcb { top: 87px; left: 820px; width: 80px; height: 154px; animation-delay: 1.2s; }
-        .lbp { top: 251px; left: 821px; width: 82px; height: 86px; animation-delay: 1.4s; }
-        .the-collective { top: 120px; left: 922px; width: 327px; height: 400px; animation-delay: 1.6s; }
-        .btc { top: 475px; left: 862px; width: 51px; height: 45px; animation-delay: 1.8s; }
-        .coming-soon { top: 475px; left: 721px; width: 138px; height: 45px; animation-delay: 2.0s; }
-        .hi { top: 315px; left: 246px; width: 165px; height: 165px; border-radius: 50%; animation-delay: 2.2s; }
-        .henare-construction { top: 547px; left: 865px; width: 119px; height: 66px; animation-delay: 2.4s; }
-        .henare-roofing { top: 545px; left: 991px; width: 120px; height: 70px; animation-delay: 2.6s; }
-        .henare-electrical { top: 545px; left: 1120px; width: 120px; height: 76px; animation-delay: 2.8s; }
-        .henare-strategic { top: 544px; left: 733px; width: 126px; height: 74px; animation-delay: 3.0s; }
-
     </style>
 </head>
 <body>
-    <div class="image-container">
-        <!-- Centered Image -->
-        <img src="https://i.imgur.com/2K8nxOD.png" alt="Tohi Henry - Signature Block" class="animated-image">
+    <!-- Image hosted on Imgur -->
+    <img src="https://i.imgur.com/2K8nxOD.png" usemap="#image-map" alt="Tohi Henry - Signature Block">
 
-        <!-- Clickable Areas with Hover & Animation -->
-        <a href="https://qrco.de/bfDXap" class="clickable vr-card" title="VR Card" target="_blank"></a>
-        <a href="tel:02108555654" class="clickable phone" title="Phone" target="_blank"></a>
-        <a href="mailto:tohi@henare.co" class="clickable email" title="Email" target="_blank"></a>
-        <a href="https://henarecollective.co.nz/coming-soon" class="clickable website" title="Website" target="_blank"></a>
-        <a href="https://www.google.com/search?q=northland+whangarei" class="clickable service-area" title="Service Area" target="_blank"></a>
-        <a href="https://www.nzcb.nz/businesses/henare-construction-limited/" class="clickable nzcb" title="NZCBA" target="_blank"></a>
-        <a href="https://kete-lbp.mbie.govt.nz/practitioner/?id=607e441a-4993-e911-9e2c-005056ae0567" class="clickable lbp" title="LBP" target="_blank"></a>
-        <a href="https://henarecollective.co.nz/coming-soon" class="clickable the-collective" title="The Collective" target="_blank"></a>
-        <a href="#" class="clickable btc" title="We Accept BTC"></a>
-        <a href="#" class="clickable coming-soon" title="Coming Soon"></a>
-        <a href="#" class="clickable hi" title="Hi"></a>
-        <a href="#" class="clickable henare-construction" title="Henare Construction - Coming Soon"></a>
-        <a href="#" class="clickable henare-roofing" title="Henare Roofing and Scaffolding - Coming Soon"></a>
-        <a href="#" class="clickable henare-electrical" title="Henare Electrical - Coming Soon"></a>
-        <a href="https://henarestrategic.co.nz/coming-soon" class="clickable henare-strategic" title="Henare Strategic" target="_blank"></a>
-    </div>
+    <map name="image-map">
+        <area target="_blank" alt="VR Card" title="VR Card" href="https://qrco.de/bfDXap" coords="0,1,124,123" shape="rect">
+        <area target="_blank" alt="Phone" title="Phone" href="tel:02108555654" coords="471,255,767,305" shape="rect">
+        <area target="_blank" alt="Email" title="Email" href="mailto:tohi@henare.co" coords="472,307,767,351" shape="rect">
+        <area target="_blank" alt="Website" title="Website" href="https://henarecollective.co.nz/coming-soon" coords="472,353,826,399" shape="rect">
+        <area target="_blank" alt="Service Area" title="Service Area" href="https://www.google.com/search?q=northland+whangarei" coords="472,401,826,444" shape="rect">
+        <area target="_blank" alt="NZCBA" title="NZCBA" href="https://www.nzcb.nz/businesses/henare-construction-limited/" coords="820,87,900,241" shape="rect">
+        <area target="_blank" alt="LBP" title="LBP" href="https://kete-lbp.mbie.govt.nz/practitioner/?id=607e441a-4993-e911-9e2c-005056ae0567" coords="821,251,903,337" shape="rect">
+        <area target="_blank" alt="The Collective" title="The Collective" href="https://henarecollective.co.nz/coming-soon" coords="922,120, 1117,121, 1117,227, 1249,229, 1248,522, 922,520" shape="poly">
+        <area target="" alt="We Accept BTC" title="We Accept BTC" coords="862,475,913,520" shape="rect">
+        <area target="" alt="Coming Soon" title="Coming Soon" coords="721,475,859,520" shape="rect">
+        <area target="" alt="Hi" title="Hi" coords="246,315,165" shape="circle">
+        <area target="" alt="Henare Construction - Coming Soon" title="Henare Construction - Website coming Soon" coords="865,547,984,613" shape="rect">
+        <area target="" alt="Henare Roofing and Scaffolding - Coming Soon" title="Henare Roofing and Scaffolding - Website coming Soon" coords="991,545,1111,615" shape="rect">
+        <area target="" alt="Henare Electrical - Coming Soon" title="Henare Electrical - Website coming Soon" coords="1120,545,1240,621" shape="rect">
+        <area target="_blank" alt="Henare Strategic" title="Henare Strategic" href="https://henarestrategic.co.nz/coming-soon" coords="733,544,859,618" shape="rect">
+    </map>
 </body>
 </html>
