@@ -4,11 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tohi Henry Signature Block</title>
+    <style>
+        /* Water drop/bubble animation */
+        @keyframes waterDrop {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Apply animation to all target areas */
+        area {
+            display: block;
+            animation: waterDrop 1s ease-out 1.5s forwards;
+            opacity: 0; /* Start invisible */
+        }
+
+        /* Hover effect */
+        area:hover {
+            animation: waterDrop 0.5s ease-out forwards;
+        }
+
+        /* Ensure the image is responsive */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
     <!-- Image hosted on Imgur -->
     <img src="https://i.imgur.com/2K8nxOD.png" usemap="#image-map" alt="Tohi Henry - Signature Block">
 
+    <!-- Image Map -->
     <map name="image-map">
         <area target="_blank" alt="VR Card" title="VR Card" href="https://qrco.de/bfDXap" coords="0,1,124,123" shape="rect">
         <area target="_blank" alt="Phone" title="Phone" href="tel:02108555654" coords="471,255,767,305" shape="rect">
@@ -26,5 +62,15 @@
         <area target="" alt="Henare Electrical - Coming Soon" title="Henare Electrical - Website coming Soon" coords="1120,545,1240,621" shape="rect">
         <area target="_blank" alt="Henare Strategic" title="Henare Strategic" href="https://henarestrategic.co.nz/coming-soon" coords="733,544,859,618" shape="rect">
     </map>
+
+    <script>
+        // Add a delay to the animations on page load
+        document.addEventListener("DOMContentLoaded", function() {
+            const areas = document.querySelectorAll("area");
+            areas.forEach((area, index) => {
+                area.style.animationDelay = `${index * 0.1}s`; // Stagger animations slightly
+            });
+        });
+    </script>
 </body>
 </html>
