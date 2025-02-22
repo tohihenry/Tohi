@@ -21,63 +21,41 @@
         /* Image Container */
         .image-container {
             position: relative;
-            width: 900px; /* Adjust to match actual image size */
+            width: 900px; /* Adjust based on actual image size */
             display: flex;
             justify-content: center;
         }
 
-        /* Centered Image */
+        /* Centered Image (NO Animation Applied Directly) */
         .signature-image {
             width: 100%;
             height: auto;
             display: block;
         }
 
-        /* Drop Animation on Clickable Areas and Corresponding Image Parts */
-        @keyframes waterDrop {
-            0% { transform: scale(0.9); opacity: 0; filter: brightness(0.8); }
-            60% { transform: scale(1.1); opacity: 1; filter: brightness(1.1); }
-            100% { transform: scale(1); opacity: 1; filter: brightness(1); }
+        /* Magnify In and Out Animation */
+        @keyframes magnifyInOut {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.5); }
+            100% { transform: scale(1); }
         }
 
-        /* Clickable Areas */
+        /* Clickable Areas (Magnification Effect on Load and Hover) */
         .clickable {
             position: absolute;
-            opacity: 0;
-            transform: scale(0.9);
-            animation: waterDrop 1.2s ease-out forwards;
-            transition: transform 0.3s ease, opacity 0.3s ease;
+            transition: transform 1s ease-in-out;
             z-index: 10;
+            transform-origin: center;
         }
 
-        /* Hover Effect */
+        /* Apply Animation on Page Load (Delayed by 1.5s) */
+        .animate-on-load {
+            animation: magnifyInOut 2s ease-in-out 1.5s forwards;
+        }
+
+        /* Instant Magnification on Hover */
         .clickable:hover {
-            transform: scale(1.2);
-            background-color: rgba(255, 255, 255, 0.2);
-            filter: brightness(1.2);
-        }
-
-        /* Tooltip Styling */
-        .tooltip {
-            position: absolute;
-            background: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 12px;
-            white-space: nowrap;
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
-        }
-
-        /* Show Tooltip on Hover */
-        .clickable:hover .tooltip {
-            visibility: visible;
-            opacity: 1;
-            top: -25px;
-            left: 50%;
-            transform: translateX(-50%);
+            animation: magnifyInOut 2s ease-in-out forwards !important;
         }
 
     </style>
@@ -88,28 +66,22 @@
     <div class="image-container">
         <img src="https://i.imgur.com/2K8nxOD.png" usemap="#image-map" alt="Tohi Henry - Signature Block" class="signature-image">
 
-        <!-- Tooltip Display -->
-        <div class="tooltip" id="tooltip"></div>
+        <!-- Clickable Areas -->
+        <div class="clickable animate-on-load" style="top: 1px; left: 0px; width: 124px; height: 123px;" title="VR Card"></div>
+        <div class="clickable animate-on-load" style="top: 255px; left: 471px; width: 296px; height: 50px;" title="Phone"></div>
+        <div class="clickable animate-on-load" style="top: 307px; left: 472px; width: 295px; height: 44px;" title="Email"></div>
+        <div class="clickable animate-on-load" style="top: 353px; left: 472px; width: 354px; height: 46px;" title="Website"></div>
+        <div class="clickable animate-on-load" style="top: 401px; left: 472px; width: 354px; height: 43px;" title="Service Area"></div>
+        <div class="clickable animate-on-load" style="top: 87px; left: 820px; width: 80px; height: 154px;" title="NZCBA"></div>
+        <div class="clickable animate-on-load" style="top: 251px; left: 821px; width: 82px; height: 86px;" title="LBP"></div>
+        <div class="clickable animate-on-load" style="top: 120px; left: 922px; width: 327px; height: 400px;" title="The Collective"></div>
+        <div class="clickable animate-on-load" style="top: 475px; left: 862px; width: 51px; height: 45px;" title="We Accept BTC"></div>
+        <div class="clickable animate-on-load" style="top: 475px; left: 721px; width: 138px; height: 45px;" title="Coming Soon"></div>
+        <div class="clickable animate-on-load" style="top: 547px; left: 865px; width: 119px; height: 66px;" title="Henare Construction"></div>
+        <div class="clickable animate-on-load" style="top: 545px; left: 991px; width: 120px; height: 70px;" title="Henare Roofing"></div>
+        <div class="clickable animate-on-load" style="top: 545px; left: 1120px; width: 120px; height: 76px;" title="Henare Electrical"></div>
+        <div class="clickable animate-on-load" style="top: 544px; left: 733px; width: 126px; height: 74px;" title="Henare Strategic"></div>
     </div>
-
-    <!-- Image Map (Your Clickable Areas) -->
-    <map name="image-map">
-        <area target="_blank" class="clickable" alt="VR Card" title="VR Card" href="https://qrco.de/bfDXap" coords="0,1,124,123" shape="rect">
-        <area target="_blank" class="clickable" alt="Phone" title="Phone" href="tel:02108555654" coords="471,255,767,305" shape="rect">
-        <area target="_blank" class="clickable" alt="Email" title="Email" href="mailto:tohi@henare.co" coords="472,307,767,351" shape="rect">
-        <area target="_blank" class="clickable" alt="Website" title="Website" href="https://henarecollective.co.nz/coming-soon" coords="472,353,826,399" shape="rect">
-        <area target="_blank" class="clickable" alt="Service Area" title="Service Area" href="https://www.google.com/search?q=northland+whangarei" coords="472,401,826,444" shape="rect">
-        <area target="_blank" class="clickable" alt="NZCBA" title="NZCBA" href="https://www.nzcb.nz/businesses/henare-construction-limited/" coords="820,87,900,241" shape="rect">
-        <area target="_blank" class="clickable" alt="LBP" title="LBP" href="https://kete-lbp.mbie.govt.nz/practitioner/?id=607e441a-4993-e911-9e2c-005056ae0567" coords="821,251,903,337" shape="rect">
-        <area target="_blank" class="clickable" alt="The Collective" title="The Collective" href="https://henarecollective.co.nz/coming-soon" coords="922,120, 1117,121, 1117,227, 1249,229, 1248,522, 922,520" shape="poly">
-        <area target="" class="clickable" alt="We Accept BTC" title="We Accept BTC" coords="862,475,913,520" shape="rect">
-        <area target="" class="clickable" alt="Coming Soon" title="Coming Soon" coords="721,475,859,520" shape="rect">
-        <area target="" class="clickable" alt="Hi" title="Hi" coords="246,315,165" shape="circle">
-        <area target="" class="clickable" alt="Henare Construction - Coming Soon" title="Henare Construction - Website coming Soon" coords="865,547,984,613" shape="rect">
-        <area target="" class="clickable" alt="Henare Roofing and Scaffolding - Coming Soon" title="Henare Roofing and Scaffolding - Website coming Soon" coords="991,545,1111,615" shape="rect">
-        <area target="" class="clickable" alt="Henare Electrical - Coming Soon" title="Henare Electrical - Website coming Soon" coords="1120,545,1240,621" shape="rect">
-        <area target="_blank" class="clickable" alt="Henare Strategic" title="Henare Strategic" href="https://henarestrategic.co.nz/coming-soon" coords="733,544,859,618" shape="rect">
-    </map>
 
 </body>
 </html>
