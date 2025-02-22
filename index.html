@@ -4,76 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tohi Henry Signature Block</title>
-    <style>
-        /* Basic Styling */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-            position: relative;
-        }
-
-        /* Image Container */
-        .image-container {
-            position: relative;
-            width: 900px; /* Match your actual image width */
-            display: flex;
-            justify-content: center;
-        }
-
-        /* Centered Image */
-        .signature-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            opacity: 0;
-            animation: fadeIn 1.5s ease-in-out forwards;
-        }
-
-        /* Fade-in Animation for Clickable Areas */
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: scale(0.8); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-
-        /* Tooltip Styling */
-        .tooltip {
-            position: absolute;
-            background: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 12px;
-            white-space: nowrap;
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
-        }
-
-        /* Show Tooltip on Hover */
-        .hovered .tooltip {
-            visibility: visible;
-            opacity: 1;
-        }
-
-    </style>
 </head>
 <body>
+    <!-- Image hosted on Imgur -->
+    <img src="https://i.imgur.com/2K8nxOD.png" usemap="#image-map" alt="Tohi Henry - Signature Block">
 
-    <!-- Image Container -->
-    <div class="image-container">
-        <img src="https://i.imgur.com/2K8nxOD.png" usemap="#image-map" alt="Tohi Henry - Signature Block" class="signature-image">
-
-        <!-- Tooltip Display -->
-        <div class="tooltip" id="tooltip"></div>
-    </div>
-
-    <!-- Image Map (Your Existing Clickable Areas) -->
     <map name="image-map">
         <area target="_blank" alt="VR Card" title="VR Card" href="https://qrco.de/bfDXap" coords="0,1,124,123" shape="rect">
         <area target="_blank" alt="Phone" title="Phone" href="tel:02108555654" coords="471,255,767,305" shape="rect">
@@ -91,30 +26,5 @@
         <area target="" alt="Henare Electrical - Coming Soon" title="Henare Electrical - Website coming Soon" coords="1120,545,1240,621" shape="rect">
         <area target="_blank" alt="Henare Strategic" title="Henare Strategic" href="https://henarestrategic.co.nz/coming-soon" coords="733,544,859,618" shape="rect">
     </map>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const areas = document.querySelectorAll("area");
-            const tooltip = document.getElementById("tooltip");
-
-            // Animate Image Load
-            document.querySelector(".signature-image").style.opacity = "1";
-
-            // Add Hover Effect for Tooltips
-            areas.forEach(area => {
-                area.addEventListener("mouseenter", function (event) {
-                    tooltip.innerText = area.title;
-                    tooltip.style.left = event.pageX + "px";
-                    tooltip.style.top = (event.pageY - 30) + "px";
-                    tooltip.classList.add("hovered");
-                });
-
-                area.addEventListener("mouseleave", function () {
-                    tooltip.classList.remove("hovered");
-                });
-            });
-        });
-    </script>
-
 </body>
 </html>
