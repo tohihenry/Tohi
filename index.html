@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tohi Henry Signature Block</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico"> <!-- Add this line -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <style>
         /* Water drop/bubble animation */
         @keyframes waterDrop {
@@ -13,45 +13,60 @@
             100% { transform: scale(1); opacity: 1; }
         }
 
+        /* Container for the image and clickable areas */
+        .image-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Clickable areas */
+        .clickable-area {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3); /* Semi-transparent background for debugging */
+            animation: waterDrop 1s ease-out 1.5s forwards;
+            opacity: 0; /* Start invisible */
+        }
+
+        /* Hover effect */
+        .clickable-area:hover {
+            animation: waterDrop 0.5s ease-out forwards;
+        }
+
         /* Ensure the image is responsive */
         img {
             max-width: 100%;
             height: auto;
         }
-
-        /* Add a class for hover effect */
-        .hover-effect:hover {
-            animation: waterDrop 0.5s ease-out forwards;
-        }
     </style>
 </head>
 <body>
-    <!-- Image hosted on Imgur -->
-    <img src="https://i.imgur.com/2K8nxOD.png" usemap="#image-map" alt="Tohi Henry - Signature Block">
+    <!-- Container for the image and clickable areas -->
+    <div class="image-container">
+        <!-- Image hosted on Imgur -->
+        <img src="https://i.imgur.com/2K8nxOD.png" alt="Tohi Henry - Signature Block">
 
-    <!-- Image Map -->
-    <map name="image-map">
-        <area target="_blank" alt="VR Card" title="VR Card" href="https://qrco.de/bfDXap" coords="0,1,124,123" shape="rect" class="hover-effect">
-        <area target="_blank" alt="Phone" title="Phone" href="tel:02108555654" coords="471,255,767,305" shape="rect" class="hover-effect">
-        <area target="_blank" alt="Email" title="Email" href="mailto:tohi@henare.co" coords="472,307,767,351" shape="rect" class="hover-effect">
-        <area target="_blank" alt="Website" title="Website" href="https://henarecollective.co.nz/coming-soon" coords="472,353,826,399" shape="rect" class="hover-effect">
-        <area target="_blank" alt="Service Area" title="Service Area" href="https://www.google.com/search?q=northland+whangarei" coords="472,401,826,444" shape="rect" class="hover-effect">
-        <area target="_blank" alt="NZCBA" title="NZCBA" href="https://www.nzcb.nz/businesses/henare-construction-limited/" coords="820,87,900,241" shape="rect" class="hover-effect">
-        <area target="_blank" alt="LBP" title="LBP" href="https://kete-lbp.mbie.govt.nz/practitioner/?id=607e441a-4993-e911-9e2c-005056ae0567" coords="821,251,903,337" shape="rect" class="hover-effect">
-        <area target="_blank" alt="The Collective" title="The Collective" href="https://henarecollective.co.nz/coming-soon" coords="922,120, 1117,121, 1117,227, 1249,229, 1248,522, 922,520" shape="poly" class="hover-effect">
-        <area alt="We Accept BTC" title="We Accept BTC" coords="862,475,913,520" shape="rect" class="hover-effect">
-        <area alt="Coming Soon" title="Coming Soon" coords="721,475,859,520" shape="rect" class="hover-effect">
-        <area alt="Hi" title="Hi" coords="246,315,165" shape="circle" class="hover-effect">
-        <area alt="Henare Construction - Coming Soon" title="Henare Construction - Website coming Soon" coords="865,547,984,613" shape="rect" class="hover-effect">
-        <area alt="Henare Roofing and Scaffolding - Coming Soon" title="Henare Roofing and Scaffolding - Website coming Soon" coords="991,545,1111,615" shape="rect" class="hover-effect">
-        <area alt="Henare Electrical - Coming Soon" title="Henare Electrical - Website coming Soon" coords="1120,545,1240,621" shape="rect" class="hover-effect">
-        <area target="_blank" alt="Henare Strategic" title="Henare Strategic" href="https://henarestrategic.co.nz/coming-soon" coords="733,544,859,618" shape="rect" class="hover-effect">
-    </map>
+        <!-- Clickable areas as divs -->
+        <a href="https://qrco.de/bfDXap" target="_blank" class="clickable-area" style="top: 1px; left: 0px; width: 124px; height: 123px;"></a>
+        <a href="tel:02108555654" target="_blank" class="clickable-area" style="top: 255px; left: 471px; width: 296px; height: 50px;"></a>
+        <a href="mailto:tohi@henare.co" target="_blank" class="clickable-area" style="top: 307px; left: 472px; width: 295px; height: 44px;"></a>
+        <a href="https://henarecollective.co.nz/coming-soon" target="_blank" class="clickable-area" style="top: 353px; left: 472px; width: 354px; height: 46px;"></a>
+        <a href="https://www.google.com/search?q=northland+whangarei" target="_blank" class="clickable-area" style="top: 401px; left: 472px; width: 354px; height: 43px;"></a>
+        <a href="https://www.nzcb.nz/businesses/henare-construction-limited/" target="_blank" class="clickable-area" style="top: 87px; left: 820px; width: 80px; height: 154px;"></a>
+        <a href="https://kete-lbp.mbie.govt.nz/practitioner/?id=607e441a-4993-e911-9e2c-005056ae0567" target="_blank" class="clickable-area" style="top: 251px; left: 821px; width: 82px; height: 86px;"></a>
+        <a href="https://henarecollective.co.nz/coming-soon" target="_blank" class="clickable-area" style="top: 120px; left: 922px; width: 326px; height: 402px;"></a>
+        <div class="clickable-area" style="top: 475px; left: 862px; width: 51px; height: 45px;"></div>
+        <div class="clickable-area" style="top: 475px; left: 721px; width: 138px; height: 45px;"></div>
+        <div class="clickable-area" style="top: 315px; left: 246px; width: 165px; height: 165px; border-radius: 50%;"></div>
+        <div class="clickable-area" style="top: 547px; left: 865px; width: 119px; height: 66px;"></div>
+        <div class="clickable-area" style="top: 545px; left: 991px; width: 120px; height: 70px;"></div>
+        <div class="clickable-area" style="top: 545px; left: 1120px; width: 120px; height: 76px;"></div>
+        <a href="https://henarestrategic.co.nz/coming-soon" target="_blank" class="clickable-area" style="top: 544px; left: 733px; width: 126px; height: 74px;"></a>
+    </div>
 
     <script>
         // Add a delay to the animations on page load
         document.addEventListener("DOMContentLoaded", function() {
-            const areas = document.querySelectorAll("area");
+            const areas = document.querySelectorAll(".clickable-area");
             areas.forEach((area, index) => {
                 area.style.animationDelay = `${index * 0.1}s`; // Stagger animations slightly
             });
