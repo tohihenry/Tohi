@@ -8,9 +8,11 @@
     <style>
         /* Pulse Animation */
         @keyframes pulse {
-            0% { transform: scale(1); background: rgba(255, 215, 0, 0.3); } /* Gold glow */
-            50% { transform: scale(1.1); background: rgba(0, 191, 255, 0.4); } /* Blue glow */
-            100% { transform: scale(1); background: rgba(255, 215, 0, 0.3); }
+            0% { transform: scale(1); background: transparent; } /* Start transparent */
+            25% { transform: scale(1.05); background: rgba(255, 215, 0, 0.4); } /* Gold glow */
+            50% { transform: scale(1.1); background: rgba(0, 191, 255, 0.5); } /* Blue glow peak */
+            75% { transform: scale(1.05); background: rgba(255, 215, 0, 0.4); } /* Back to gold */
+            100% { transform: scale(1); background: transparent; } /* End transparent */
         }
 
         /* Container for the image and clickable areas */
@@ -22,20 +24,18 @@
         /* Clickable areas */
         .clickable-area {
             position: absolute;
-            background: rgba(255, 215, 0, 0.3); /* Visible starting glow */
-            opacity: 1; /* Fully visible by default */
+            background: transparent; /* Default transparent */
             cursor: pointer;
-            transition: background 0.3s ease; /* Smooth background transition */
         }
 
         /* Initial load animation */
         .clickable-area.animate-on-load {
-            animation: pulse 1s ease-in-out 1s 2; /* 1s duration, 1s delay, 2 pulses */
+            animation: pulse 1.5s ease-in-out 1s 1; /* 1.5s duration, 1s delay, 1 pulse */
         }
 
         /* Hover animation */
         .clickable-area:hover {
-            animation: pulse 0.8s ease-in-out infinite; /* Instant, continuous pulse */
+            animation: pulse 1s ease-in-out infinite; /* Instant, continuous pulse */
         }
 
         /* Custom tooltip (Instant) */
@@ -55,7 +55,7 @@
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.1s ease-in-out;
-            z-index: 10; /* Ensure tooltip is above other elements */
+            z-index: 10;
         }
 
         /* Show Tooltip on Hover */
