@@ -23,20 +23,16 @@
         .clickable-area {
             position: absolute;
             background: transparent; /* Hide the grey background */
+            animation: waterDrop 1s ease-out 1.5s forwards;
             opacity: 0; /* Start invisible */
         }
 
-        /* Animation for linked areas only */
-        a.clickable-area {
-            animation: waterDrop 1s ease-out 1.5s forwards;
-        }
-
-        /* Hover effect for linked areas */
-        a.clickable-area:hover {
+        /* Hover effect */
+        .clickable-area:hover {
             animation: waterDrop 0.5s ease-out forwards;
         }
 
-        /* Custom tooltip for all areas */
+        /* Custom tooltip */
         .clickable-area::after {
             content: attr(title);
             position: absolute;
@@ -92,7 +88,7 @@
     <script>
         // Add a delay to the animations on page load
         document.addEventListener("DOMContentLoaded", function() {
-            const areas = document.querySelectorAll("a.clickable-area");
+            const areas = document.querySelectorAll(".clickable-area");
             areas.forEach((area, index) => {
                 area.style.animationDelay = `${index * 0.1}s`; // Stagger animations slightly
             });
