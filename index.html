@@ -25,6 +25,7 @@
             background: transparent;
             cursor: pointer;
             pointer-events: auto; /* Ensure clickability */
+            border: 1px solid red; /* Debugging: Add a red border to see the shape */
         }
 
         /* Initial load animation - now just a placeholder for JavaScript */
@@ -44,21 +45,18 @@
         /* Specific styling for polygonal areas */
         .clickable-area.poly-nzcba {
             clip-path: polygon(826px 93px, 825px 205px, 859px 227px, 893px 208px, 893px 93px);
-            /* Fallback: Use a larger rectangular area if clip-path isn’t supported */
             -webkit-clip-path: polygon(826px 93px, 825px 205px, 859px 227px, 893px 208px, 893px 93px); /* Safari */
         }
 
         /* Specific styling for circular areas */
         .clickable-area.circle-lbp {
             clip-path: circle(38px at 862px 294px);
-            /* Fallback: Use a square area if clip-path isn’t supported */
             -webkit-clip-path: circle(38px at 862px 294px); /* Safari */
         }
 
         /* Specific styling for polygonal areas (The Collective) */
         .clickable-area.poly-the-collective {
             clip-path: polygon(1044px 194px, 1029px 185px, 1016px 174px, 1004px 173px, 988px 146px, 978px 152px, 979px 170px, 972px 166px, 966px 169px, 968px 179px, 974px 192px, 977px 203px, 980px 213px, 977px 226px, 975px 240px, 972px 249px, 969px 262px, 970px 273px, 970px 285px, 973px 297px, 975px 309px, 976px 320px, 978px 332px, 970px 344px, 968px 358px, 963px 372px, 958px 385px, 955px 393px, 944px 417px, 942px 508px, 1245px 508px, 1245px 432px, 1157px 432px, 1157px 386px, 1150px 370px, 1145px 358px, 1139px 344px, 1131px 328px, 1126px 317px, 1131px 305px, 1138px 314px, 1152px 325px, 1167px 330px, 1188px 334px, 1202px 330px, 1213px 319px, 1221px 310px, 1199px 314px, 1169px 304px, 1145px 295px, 1131px 296px, 1112px 275px, 1092px 269px, 1074px 273px, 1063px 288px, 1060px 308px, 1045px 305px, 1029px 306px, 1033px 289px, 1037px 274px, 1033px 257px, 1027px 242px, 1025px 227px, 1028px 213px, 1035px 202px);
-            /* Fallback: Use a larger rectangular area if clip-path isn’t supported */
             -webkit-clip-path: polygon(1044px 194px, 1029px 185px, 1016px 174px, 1004px 173px, 988px 146px, 978px 152px, 979px 170px, 972px 166px, 966px 169px, 968px 179px, 974px 192px, 977px 203px, 980px 213px, 977px 226px, 975px 240px, 972px 249px, 969px 262px, 970px 273px, 970px 285px, 973px 297px, 975px 309px, 976px 320px, 978px 332px, 970px 344px, 968px 358px, 963px 372px, 958px 385px, 955px 393px, 944px 417px, 942px 508px, 1245px 508px, 1245px 432px, 1157px 432px, 1157px 386px, 1150px 370px, 1145px 358px, 1139px 344px, 1131px 328px, 1126px 317px, 1131px 305px, 1138px 314px, 1152px 325px, 1167px 330px, 1188px 334px, 1202px 330px, 1213px 319px, 1221px 310px, 1199px 314px, 1169px 304px, 1145px 295px, 1131px 296px, 1112px 275px, 1092px 269px, 1074px 273px, 1063px 288px, 1060px 308px, 1045px 305px, 1029px 306px, 1033px 289px, 1037px 274px, 1033px 257px, 1027px 242px, 1025px 227px, 1028px 213px, 1035px 202px); /* Safari */
         }
 
@@ -149,6 +147,9 @@
             allAreas.forEach(area => {
                 area.removeAttribute("title");
             });
+
+            // Debugging: Log to console to confirm JavaScript is running
+            console.log("Script loaded successfully for clickable areas");
         });
     </script>
 </body>
