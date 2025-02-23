@@ -6,11 +6,11 @@
     <title>Tohi Henry Signature Block</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <style>
-        /* Water Drop Magnify Animation */
-        @keyframes waterDrop {
-            0% { transform: scale(1); opacity: 0; }
-            50% { transform: scale(1.5); opacity: 1; }
-            100% { transform: scale(1); opacity: 1; }
+        /* Pulse Animation */
+        @keyframes pulse {
+            0% { transform: scale(1); background: rgba(255, 215, 0, 0.3); } /* Gold glow */
+            50% { transform: scale(1.1); background: rgba(0, 191, 255, 0.4); } /* Blue glow */
+            100% { transform: scale(1); background: rgba(255, 215, 0, 0.3); }
         }
 
         /* Container for the image and clickable areas */
@@ -22,29 +22,32 @@
         /* Clickable areas */
         .clickable-area {
             position: absolute;
-            background: transparent;
-            opacity: 0;
-            animation: waterDrop 2s ease-in-out 1.5s forwards;
-            transition: transform 0.5s ease-out, opacity 0.3s ease-out;
+            background: rgba(255, 215, 0, 0.3); /* Visible starting glow */
+            opacity: 1; /* Fully visible by default */
+            cursor: pointer;
+            transition: background 0.3s ease; /* Smooth background transition */
         }
 
-        /* Magnify effect on hover (Restart Animation) */
+        /* Initial load animation */
+        .clickable-area.animate-on-load {
+            animation: pulse 1s ease-in-out 1s 2; /* 1s duration, 1s delay, 2 pulses */
+        }
+
+        /* Hover animation */
         .clickable-area:hover {
-            animation: none; /* Stop existing animation */
-            transform: scale(1.5); /* Magnify effect */
-            opacity: 1;
+            animation: pulse 0.8s ease-in-out infinite; /* Instant, continuous pulse */
         }
 
         /* Custom tooltip (Instant) */
         .clickable-area::after {
-            content: attr(data-title); /* Use data-title instead of title */
+            content: attr(data-title);
             position: absolute;
             top: 100%;
             left: 50%;
             transform: translateX(-50%);
             background: rgba(0, 0, 0, 0.8);
             color: white;
-            font-family: Candara, sans-serif; /* Set font to Candara */
+            font-family: Candara, sans-serif;
             padding: 5px 10px;
             border-radius: 5px;
             font-size: 14px;
@@ -52,6 +55,7 @@
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.1s ease-in-out;
+            z-index: 10; /* Ensure tooltip is above other elements */
         }
 
         /* Show Tooltip on Hover */
@@ -63,6 +67,7 @@
         img {
             max-width: 100%;
             height: auto;
+            position: relative;
         }
     </style>
 </head>
@@ -91,17 +96,22 @@
     </div>
 
     <script>
-        // Add a delay to animations on page load
+        // Trigger initial animation on page load
         document.addEventListener("DOMContentLoaded", function() {
             const areas = document.querySelectorAll(".clickable-area");
-            areas.forEach((area, index) => {
-                area.style.animationDelay = `${1.5 + index * 0.1}s`; // Delayed start with stagger
+            areas.forEach(area => {
+                // Add initial animation class
+                area.classList.add("animate-on-load");
+                // Remove class after animation ends to prevent re-triggering
+                area.addEventListener("animationend", () => {
+                    area.classList.remove("animate-on-load");
+                }, { once: true });
             });
-        });
 
-        // Disable default title tooltip behavior
-        document.querySelectorAll(".clickable-area").forEach(area => {
-            area.removeAttribute("title"); // Remove the title attribute
+            // Disable default title tooltip behavior
+            areas.forEach(area => {
+                area.removeAttribute("title");
+            });
         });
     </script>
 </body>
