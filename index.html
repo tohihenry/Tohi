@@ -18,6 +18,8 @@
         .image-container {
             position: relative;
             display: inline-block;
+            max-width: 100%;
+            height: auto;
         }
 
         .clickable-area {
@@ -72,43 +74,242 @@
         }
 
         .clickable-area.circle-lbp {
-            width: 76px; /* Diameter ≈ 2 * 38px radius */
-            height: 76px; /* Diameter ≈ 2 * 38px radius */
+            width: 4.6%; /* ~76px / 1650px (image width) * 100 */
+            height: 4.6%; /* ~76px / 1650px (image width) * 100 */
         }
 
         .clickable-area.circle-hi {
-            width: 330px; /* From your existing Hi style */
-            height: 330px; /* From your existing Hi style */
+            width: 20%; /* ~330px / 1650px (image width) * 100 */
+            height: 20%; /* ~330px / 1650px (image width) * 100 */
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            position: relative;
+        /* Default positioning and dimensions (based on image dimensions ~1650px wide, ~620px high) */
+        .clickable-area[data-title="Save Contact"] {
+            top: 0.81%; /* ~5px / 620px (image height) * 100 */
+            left: 0.30%; /* ~5px / 1650px (image width) * 100 */
+            width: 6.67%; /* ~110px / 1650px (image width) * 100 */
+            height: 6.67%; /* ~110px / 620px (image height) * 100 */
+        }
+
+        .clickable-area[data-title="Call me"] {
+            top: 15.48%; /* ~255px / 620px (image height) * 100 */
+            left: 28.55%; /* ~471px / 1650px (image width) * 100 */
+            width: 13.58%; /* ~224px / 1650px (image width) * 100 */
+            height: 2.42%; /* ~40px / 620px (image height) * 100 */
+        }
+
+        .clickable-area[data-title="Email me"] {
+            top: 18.55%; /* ~305px / 620px (image height) * 100 */
+            left: 28.61%; /* ~472px / 1650px (image width) * 100 */
+            width: 13.58%; /* ~224px / 1650px (image width) * 100 */
+            height: 2.42%; /* ~40px / 620px (image height) * 100 */
+        }
+
+        .clickable-area[data-title="Visit our Website"] {
+            top: 21.61%; /* ~355px / 620px (image height) * 100 */
+            left: 28.61%; /* ~472px / 1650px (image width) * 100 */
+            width: 20.67%; /* ~341px / 1650px (image width) * 100 */
+            height: 2.42%; /* ~40px / 620px (image height) * 100 */
+        }
+
+        .clickable-area[data-title="Service Area"] {
+            top: 24.68%; /* ~405px / 620px (image height) * 100 */
+            left: 28.61%; /* ~472px / 1650px (image width) * 100 */
+            width: 17.82%; /* ~294px / 1650px (image width) * 100 */
+            height: 2.42%; /* ~40px / 620px (image height) * 100 */
+        }
+
+        .clickable-area[data-title="NZ Certified Builders Association"] {
+            top: 5.48%; /* ~90px / 620px (image height) * 100 */
+            left: 49.85%; /* ~825px / 1650px (image width) * 100 */
+            width: 4.24%; /* ~70px / 1650px (image width) * 100 */
+            height: 7.88%; /* ~130px / 620px (image height) * 100 */
+        }
+
+        .clickable-area[data-title="Licensed Building Practitioner"] {
+            top: 15.48%; /* ~257px / 620px (image height) * 100 */
+            left: 49.82%; /* ~822px / 1650px (image width) * 100 */
+            width: 4.61%; /* ~76px / 1650px (image width) * 100 */
+            height: 4.61%; /* ~76px / 620px (image height) * 100 */
+        }
+
+        .clickable-area[data-title="The Collective"] {
+            top: 7.29%; /* ~120px / 620px (image height) * 100 */
+            left: 55.88%; /* ~922px / 1650px (image width) * 100 */
+            width: 19.76%; /* ~326px / 1650px (image width) * 100 */
+            height: 24.36%; /* ~402px / 620px (image height) * 100 */
+        }
+
+        .clickable-area[data-title="We Accept BTC"] {
+            top: 28.87%; /* ~475px / 620px (image height) * 100 */
+            left: 52.30%; /* ~862px / 1650px (image width) * 100 */
+            width: 3.09%; /* ~51px / 1650px (image width) * 100 */
+            height: 2.74%; /* ~45px / 620px (image height) * 100 */
+        }
+
+        .clickable-area[data-title="Coming Soon"] {
+            top: 28.87%; /* ~475px / 620px (image height) * 100 */
+            left: 43.70%; /* ~721px / 1650px (image width) * 100 */
+            width: 8.36%; /* ~138px / 1650px (image width) * 100 */
+            height: 2.74%; /* ~45px / 620px (image height) * 100 */
+        }
+
+        .clickable-area[data-title="Henare Construction - Website Coming Soon"] {
+            top: 33.23%; /* ~547px / 620px (image height) * 100 */
+            left: 52.42%; /* ~865px / 1650px (image width) * 100 */
+            width: 7.21%; /* ~119px / 1650px (image width) * 100 */
+            height: 4.00%; /* ~66px / 620px (image height) * 100 */
+        }
+
+        .clickable-area[data-title="Henare Roofing and Scaffolding - Website Coming Soon"] {
+            top: 33.06%; /* ~545px / 620px (image height) * 100 */
+            left: 60.06%; /* ~991px / 1650px (image width) * 100 */
+            width: 7.27%; /* ~120px / 1650px (image width) * 100 */
+            height: 4.24%; /* ~70px / 620px (image height) * 100 */
+        }
+
+        .clickable-area[data-title="Henare Electrical - Website Coming Soon"] {
+            top: 33.06%; /* ~545px / 620px (image height) * 100 */
+            left: 67.88%; /* ~1120px / 1650px (image width) * 100 */
+            width: 7.27%; /* ~120px / 1650px (image width) * 100 */
+            height: 4.61%; /* ~76px / 620px (image height) * 100 */
+        }
+
+        .clickable-area[data-title="Henare Strategic"] {
+            top: 33.06%; /* ~544px / 620px (image height) * 100 */
+            left: 44.42%; /* ~733px / 1650px (image width) * 100 */
+            width: 7.64%; /* ~126px / 1650px (image width) * 100 */
+            height: 4.49%; /* ~74px / 620px (image height) * 100 */
+        }
+
+        /* Media queries for mobile devices (iOS, e.g., iPhone widths: 375px, 414px, 428px) */
+        @media only screen and (max-width: 768px) {
+            .image-container img {
+                width: 100%;
+                height: auto;
+            }
+
+            .clickable-area[data-title="Save Contact"] {
+                top: 0.5%; /* Adjusted for mobile */
+                left: 0.5%;
+                width: 12%; /* Slightly larger for touch */
+                height: 12%;
+            }
+
+            .clickable-area[data-title="Call me"] {
+                top: 15%; /* Adjusted for mobile */
+                left: 28%;
+                width: 14%; /* Slightly larger for touch */
+                height: 3%;
+            }
+
+            .clickable-area[data-title="Email me"] {
+                top: 18%; /* Adjusted for mobile */
+                left: 28%;
+                width: 14%; /* Slightly larger for touch */
+                height: 2.5%;
+            }
+
+            .clickable-area[data-title="Visit our Website"] {
+                top: 21%; /* Adjusted for mobile */
+                left: 28%;
+                width: 21%; /* Slightly larger for touch */
+                height: 2.5%;
+            }
+
+            .clickable-area[data-title="Service Area"] {
+                top: 24%; /* Adjusted for mobile */
+                left: 28%;
+                width: 18%; /* Slightly larger for touch */
+                height: 2.5%;
+            }
+
+            .clickable-area[data-title="NZ Certified Builders Association"] {
+                top: 5%; /* Adjusted for mobile */
+                left: 49%;
+                width: 5%; /* Slightly larger for touch */
+                height: 10%;
+            }
+
+            .clickable-area[data-title="Licensed Building Practitioner"] {
+                top: 15%; /* Adjusted for mobile */
+                left: 49%;
+                width: 4.5%; /* Slightly larger for touch */
+                height: 4.5%;
+            }
+
+            .clickable-area[data-title="The Collective"] {
+                top: 7%; /* Adjusted for mobile */
+                left: 55%;
+                width: 20%; /* Slightly larger for touch */
+                height: 25%;
+            }
+
+            .clickable-area[data-title="We Accept BTC"] {
+                top: 28%; /* Adjusted for mobile */
+                left: 52%;
+                width: 3.5%; /* Slightly larger for touch */
+                height: 3%;
+            }
+
+            .clickable-area[data-title="Coming Soon"] {
+                top: 28%; /* Adjusted for mobile */
+                left: 43%;
+                width: 9%; /* Slightly larger for touch */
+                height: 3%;
+            }
+
+            .clickable-area[data-title="Henare Construction - Website Coming Soon"] {
+                top: 33%; /* Adjusted for mobile */
+                left: 52%;
+                width: 7.5%; /* Slightly larger for touch */
+                height: 4%;
+            }
+
+            .clickable-area[data-title="Henare Roofing and Scaffolding - Website Coming Soon"] {
+                top: 33%; /* Adjusted for mobile */
+                left: 60%;
+                width: 7.5%; /* Slightly larger for touch */
+                height: 4.5%;
+            }
+
+            .clickable-area[data-title="Henare Electrical - Website Coming Soon"] {
+                top: 33%; /* Adjusted for mobile */
+                left: 67%;
+                width: 7.5%; /* Slightly larger for touch */
+                height: 5%;
+            }
+
+            .clickable-area[data-title="Henare Strategic"] {
+                top: 33%; /* Adjusted for mobile */
+                left: 44%;
+                width: 8%; /* Slightly larger for touch */
+                height: 4.5%;
+            }
         }
     </style>
 </head>
 <body>
     <div class="image-container">
-        <!-- Image without map reference -->
+        <!-- Image without map reference, scaled for mobile -->
         <img src="https://i.imgur.com/2K8nxOD.png" alt="Tohi Henry - Signature Block">
 
-        <!-- Clickable areas as divs with rectangles and circles, no red borders -->
-        <a href="https://qrco.de/bfDXap" target="_blank" class="clickable-area" style="top: 5px; left: 5px; width: 110px; height: 110px;" data-title="Save Contact"></a>
-        <a href="tel:02108555654" target="_blank" class="clickable-area" style="top: 255px; left: 471px; width: 224px; height: 40px;" data-title="Call me"></a>
-        <a href="mailto:tohi@henare.co" target="_blank" class="clickable-area" style="top: 305px; left: 472px; width: 224px; height: 40px;" data-title="Email me"></a>
-        <a href="https://henarecollective.co.nz/coming-soon" target="_blank" class="clickable-area" style="top: 355px; left: 472px; width: 341px; height: 40px;" data-title="Visit our Website"></a>
-        <a href="https://www.google.com/search?q=northland+whangarei" target="_blank" class="clickable-area" style="top: 405px; left: 472px; width: 294px; height: 40px;" data-title="Service Area"></a>
-        <a href="https://www.nzcb.nz/businesses/henare-construction-limited/" target="_blank" class="clickable-area" style="top: 90px; left: 825px; width: 70px; height: 130px;" data-title="NZ Certified Builders Association"></a> <!-- Reverted to rectangle -->
-        <a href="https://kete-lbp.mbie.govt.nz/practitioner/?id=607e441a-4993-e911-9e2c-005056ae0567" target="_blank" class="clickable-area circle-lbp" style="top: 257px; left: 822px; width: 76px; height: 76px;" data-title="Licensed Building Practitioner"></a> <!-- Circle -->
-        <a href="https://henarecollective.co.nz/coming-soon" target="_blank" class="clickable-area" style="top: 120px; left: 922px; width: 326px; height: 402px;" data-title="The Collective"></a> <!-- Rectangle -->
-        <div class="clickable-area" style="top: 475px; left: 862px; width: 51px; height: 45px;" data-title="We Accept BTC"></div>
-        <div class="clickable-area" style="top: 475px; left: 721px; width: 138px; height: 45px;" data-title="Coming Soon"></div>
-        <div class="clickable-area circle-hi" style="top: 150px; left: 81px; width: 330px; height: 330px; border-radius: 50%;" data-title="Hi"></div>
-        <div class="clickable-area" style="top: 547px; left: 865px; width: 119px; height: 66px;" data-title="Henare Construction - Website Coming Soon"></div>
-        <div class="clickable-area" style="top: 545px; left: 991px; width: 120px; height: 70px;" data-title="Henare Roofing and Scaffolding - Website Coming Soon"></div>
-        <div class="clickable-area" style="top: 545px; left: 1120px; width: 120px; height: 76px;" data-title="Henare Electrical - Website Coming Soon"></div>
-        <a href="https://henarestrategic.co.nz/coming-soon" target="_blank" class="clickable-area" style="top: 544px; left: 733px; width: 126px; height: 74px;" data-title="Henare Strategic"></a>
+        <!-- Clickable areas as divs with percentages for scaling, no red borders -->
+        <a href="https://qrco.de/bfDXap" target="_blank" class="clickable-area" data-title="Save Contact"></a>
+        <a href="tel:02108555654" target="_blank" class="clickable-area" data-title="Call me"></a>
+        <a href="mailto:tohi@henare.co" target="_blank" class="clickable-area" data-title="Email me"></a>
+        <a href="https://henarecollective.co.nz/coming-soon" target="_blank" class="clickable-area" data-title="Visit our Website"></a>
+        <a href="https://www.google.com/search?q=northland+whangarei" target="_blank" class="clickable-area" data-title="Service Area"></a>
+        <a href="https://www.nzcb.nz/businesses/henare-construction-limited/" target="_blank" class="clickable-area" data-title="NZ Certified Builders Association"></a>
+        <a href="https://kete-lbp.mbie.govt.nz/practitioner/?id=607e441a-4993-e911-9e2c-005056ae0567" target="_blank" class="clickable-area circle-lbp" data-title="Licensed Building Practitioner"></a>
+        <a href="https://henarecollective.co.nz/coming-soon" target="_blank" class="clickable-area" data-title="The Collective"></a>
+        <div class="clickable-area" data-title="We Accept BTC"></div>
+        <div class="clickable-area" data-title="Coming Soon"></div>
+        <div class="clickable-area circle-hi" data-title="Hi"></div>
+        <div class="clickable-area" data-title="Henare Construction - Website Coming Soon"></div>
+        <div class="clickable-area" data-title="Henare Roofing and Scaffolding - Website Coming Soon"></div>
+        <div class="clickable-area" data-title="Henare Electrical - Website Coming Soon"></div>
+        <a href="https://henarestrategic.co.nz/coming-soon" target="_blank" class="clickable-area" data-title="Henare Strategic"></a>
     </div>
 
     <script>
@@ -122,11 +323,11 @@
                 });
             }
 
-            // Delay the initial pulse by 2 seconds, then start recurring every 5 seconds
+            // Delay the initial pulse by 2 seconds, then start recurring every 7 seconds (as per your amendment)
             setTimeout(() => {
                 startRecurringPulse(); // Start the pulse after 2 seconds
 
-                // Set up recurring pulses every 5 seconds (adjust this value as needed)
+                // Set up recurring pulses every 7 seconds (adjust this value as needed)
                 setInterval(() => {
                     // Remove and reapply the pulse-ongoing class to restart the animation
                     linkAreas.forEach(area => {
@@ -134,9 +335,9 @@
                         // Use a small delay before reapplying to ensure the animation restarts
                         setTimeout(() => {
                             area.classList.add("pulse-ongoing");
-                        }, 1000); // Small delay to reset the animation
+                        }, 1000); // Small delay to reset the animation (as per your amendment)
                     });
-                }, 7000); // Repeat every 5 seconds (adjust to e.g., 3000 for 3 seconds, 7000 for 7 seconds, etc.)
+                }, 7000); // Repeat every 7 seconds (as per your amendment)
             }, 2000); // Initial 2-second delay before starting
 
             // Disable default title tooltip behavior for all clickable areas
