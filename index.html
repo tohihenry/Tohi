@@ -4,77 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tohi Henry Signature Block</title>
-   <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <style>
-     /* Pulse Animation with softer colors */
-@keyframes pulse {
-    0% { transform: scale(1); background: transparent; }
-    25% { transform: scale(1.05); background: rgba(200, 200, 200, 0.3); }
-    50% { transform: scale(1.1); background: rgba(100, 150, 255, 0.4); }
-    75% { transform: scale(1.05); background: rgba(200, 200, 200, 0.3); }
-    100% { transform: scale(1); background: transparent; }
-}
+        /* Pulse Animation with softer colors */
+        @keyframes pulse {
+            0% { transform: scale(1); background: transparent; }
+            25% { transform: scale(1.05); background: rgba(200, 200, 200, 0.3); }
+            50% { transform: scale(1.1); background: rgba(100, 150, 255, 0.4); }
+            75% { transform: scale(1.05); background: rgba(200, 200, 200, 0.3); }
+            100% { transform: scale(1); background: transparent; }
+        }
 
-.image-container {
-    position: relative;
-    display: inline-block;
-}
+        .image-container {
+            position: relative;
+            display: inline-block;
+        }
 
-.clickable-area {
-    position: absolute;
-    background: transparent;
-    cursor: pointer;
-}
+        .clickable-area {
+            position: absolute;
+            background: transparent;
+            cursor: pointer;
+        }
 
-/* Initial load animation - now just a placeholder for JavaScript */
-a.clickable-area.animate-on-load {
-    animation: none; /* Remove the initial animation */
-}
+        /* Initial load animation - now just a placeholder for JavaScript */
+        a.clickable-area.animate-on-load {
+            animation: none; /* Remove the initial animation */
+        }
 
-/* Recurring pulse animation for linked areas */
-a.clickable-area.pulse-ongoing {
-    animation: pulse 1.5s ease-in-out 0s infinite; /* Loops every 1.5s with no initial delay */
-}
+        /* Recurring pulse animation for linked areas */
+        a.clickable-area.pulse-ongoing {
+            animation: pulse 1.5s ease-in-out 0s infinite; /* Loops every 1.5s with no initial delay */
+        }
 
-a.clickable-area:hover {
-    animation: pulse 1s ease-in-out infinite;
-}
+        a.clickable-area:hover {
+            animation: pulse 1s ease-in-out infinite;
+        }
 
-.clickable-area::after {
-    content: attr(data-title);
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    font-family: Candara, sans-serif;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 14px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.1s ease-in-out;
-    z-index: 10;
-}
+        .clickable-area::after {
+            content: attr(data-title);
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            font-family: Candara, sans-serif;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.1s ease-in-out;
+            z-index: 10;
+        }
 
-.clickable-area:hover::after {
-    opacity: 1;
-}
+        .clickable-area:hover::after {
+            opacity: 1;
+        }
 
-img {
-    max-width: 100%;
-    height: auto;
-    position: relative;
-}
+        img {
+            max-width: 100%;
+            height: auto;
+            position: relative;
+        }
     </style>
 </head>
 <body>
-    <!-- Container for the image and clickable areas -->
     <div class="image-container">
-        <!-- Image hosted on Imgur -->
-        <img src="https://i.imgur.com/2K8nxOD.png" alt="Tohi Henry - Signature Block">
+        <!-- Image with map reference -->
+        <img src="https://i.imgur.com/2K8nxOD.png" alt="Tohi Henry - Signature Block" usemap="#image-map">
 
         <!-- Clickable areas as divs -->
         <a href="https://qrco.de/bfDXap" target="_blank" class="clickable-area" style="top: 1px; left: 0px; width: 124px; height: 123px;" data-title="VR Card"></a>
@@ -106,40 +105,39 @@ img {
     </div>
 
     <script>
-        // Trigger initial animation on page load - only for <a> tags
-document.addEventListener("DOMContentLoaded", function() {
-    const linkAreas = document.querySelectorAll("a.clickable-area");
+        document.addEventListener("DOMContentLoaded", function() {
+            const linkAreas = document.querySelectorAll("a.clickable-area");
 
-    // Function to start the recurring pulse
-    function startRecurringPulse() {
-        linkAreas.forEach(area => {
-            area.classList.add("pulse-ongoing");
-        });
-    }
-
-    // Delay the initial pulse by 2 seconds, then start recurring every 5 seconds
-    setTimeout(() => {
-        startRecurringPulse(); // Start the pulse after 2 seconds
-
-        // Set up recurring pulses every 5 seconds (adjust this value as needed)
-        setInterval(() => {
-            // Remove and reapply the pulse-ongoing class to restart the animation
-            linkAreas.forEach(area => {
-                area.classList.remove("pulse-ongoing");
-                // Use a small delay before reapplying to ensure the animation restarts
-                setTimeout(() => {
+            // Function to start the recurring pulse
+            function startRecurringPulse() {
+                linkAreas.forEach(area => {
                     area.classList.add("pulse-ongoing");
-                }, 50); // Small delay to reset the animation
-            });
-        }, 5000); // Repeat every 5 seconds (adjust to e.g., 3000 for 3 seconds, 7000 for 7 seconds, etc.)
-    }, 2000); // Initial 2-second delay before starting
+                });
+            }
 
-    // Disable default title tooltip behavior for all clickable areas
-    const allAreas = document.querySelectorAll(".clickable-area");
-    allAreas.forEach(area => {
-        area.removeAttribute("title");
-    });
-});
+            // Delay the initial pulse by 2 seconds, then start recurring every 5 seconds
+            setTimeout(() => {
+                startRecurringPulse(); // Start the pulse after 2 seconds
+
+                // Set up recurring pulses every 5 seconds (adjust this value as needed)
+                setInterval(() => {
+                    // Remove and reapply the pulse-ongoing class to restart the animation
+                    linkAreas.forEach(area => {
+                        area.classList.remove("pulse-ongoing");
+                        // Use a small delay before reapplying to ensure the animation restarts
+                        setTimeout(() => {
+                            area.classList.add("pulse-ongoing");
+                        }, 50); // Small delay to reset the animation
+                    });
+                }, 5000); // Repeat every 5 seconds (adjust to e.g., 3000 for 3 seconds, 7000 for 7 seconds, etc.)
+            }, 2000); // Initial 2-second delay before starting
+
+            // Disable default title tooltip behavior for all clickable areas
+            const allAreas = document.querySelectorAll(".clickable-area");
+            allAreas.forEach(area => {
+                area.removeAttribute("title");
+            });
+        });
     </script>
 </body>
 </html>
