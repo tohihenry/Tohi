@@ -69,8 +69,17 @@
         /* Specific styling for circular areas (LBP and Hi) */
         .clickable-area.circle-lbp,
         .clickable-area.circle-hi {
-            clip-path: circle(38px at 860px 295px); /* For LBP, matching coords="860,295,38" */
-            -webkit-clip-path: circle(38px at 860px 295px); /* Safari */
+            border-radius: 50%; /* Create a circle using border-radius */
+        }
+
+        .clickable-area.circle-lbp {
+            width: 76px; /* Diameter ≈ 2 * 38px radius */
+            height: 76px; /* Diameter ≈ 2 * 38px radius */
+        }
+
+        .clickable-area.circle-hi {
+            width: 330px; /* From your existing Hi style */
+            height: 330px; /* From your existing Hi style */
         }
 
         img {
@@ -92,7 +101,7 @@
         <a href="https://henarecollective.co.nz/coming-soon" target="_blank" class="clickable-area" style="top: 353px; left: 472px; width: 341px; height: 38px;" data-title="Website"></a>
         <a href="https://www.google.com/search?q=northland+whangarei" target="_blank" class="clickable-area" style="top: 401px; left: 472px; width: 294px; height: 37px;" data-title="Service Area"></a>
         <a href="https://www.nzcb.nz/businesses/henare-construction-limited/" target="_blank" class="clickable-area" style="top: 87px; left: 820px; width: 80px; height: 154px;" data-title="NZCBA"></a> <!-- Rectangle -->
-        <a href="https://kete-lbp.mbie.govt.nz/practitioner/?id=607e441a-4993-e911-9e2c-005056ae0567" target="_blank" class="clickable-area circle-lbp" style="top: 257px; left: 822px; width: 76px; height: 76px;" data-title="LBP"></a> <!-- Circle with fallback -->
+        <a href="https://kete-lbp.mbie.govt.nz/practitioner/?id=607e441a-4993-e911-9e2c-005056ae0567" target="_blank" class="clickable-area circle-lbp" style="top: 257px; left: 822px; width: 76px; height: 76px;" data-title="LBP"></a> <!-- Circle with border-radius -->
         <a href="https://henarecollective.co.nz/coming-soon" target="_blank" class="clickable-area" style="top: 120px; left: 922px; width: 326px; height: 402px;" data-title="The Collective"></a> <!-- Rectangle -->
         <div class="clickable-area" style="top: 475px; left: 862px; width: 51px; height: 45px;" data-title="We Accept BTC"></div>
         <div class="clickable-area" style="top: 475px; left: 721px; width: 138px; height: 45px;" data-title="Coming Soon"></div>
