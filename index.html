@@ -37,7 +37,7 @@
 
         /* Custom tooltip (Instant) */
         .clickable-area::after {
-            content: attr(title);
+            content: attr(data-title); /* Use data-title instead of title */
             position: absolute;
             top: 100%;
             left: 50%;
@@ -64,7 +64,6 @@
             max-width: 100%;
             height: auto;
         }
-
     </style>
 </head>
 <body>
@@ -74,21 +73,21 @@
         <img src="https://i.imgur.com/2K8nxOD.png" alt="Tohi Henry - Signature Block">
 
         <!-- Clickable areas as divs -->
-        <a href="https://qrco.de/bfDXap" target="_blank" class="clickable-area" style="top: 1px; left: 0px; width: 124px; height: 123px;" title="VR Card"></a>
-        <a href="tel:02108555654" target="_blank" class="clickable-area" style="top: 255px; left: 471px; width: 296px; height: 50px;" title="Phone"></a>
-        <a href="mailto:tohi@henare.co" target="_blank" class="clickable-area" style="top: 307px; left: 472px; width: 295px; height: 44px;" title="Email"></a>
-        <a href="https://henarecollective.co.nz/coming-soon" target="_blank" class="clickable-area" style="top: 353px; left: 472px; width: 354px; height: 46px;" title="Website"></a>
-        <a href="https://www.google.com/search?q=northland+whangarei" target="_blank" class="clickable-area" style="top: 401px; left: 472px; width: 354px; height: 43px;" title="Service Area"></a>
-        <a href="https://www.nzcb.nz/businesses/henare-construction-limited/" target="_blank" class="clickable-area" style="top: 87px; left: 820px; width: 80px; height: 154px;" title="NZCBA"></a>
-        <a href="https://kete-lbp.mbie.govt.nz/practitioner/?id=607e441a-4993-e911-9e2c-005056ae0567" target="_blank" class="clickable-area" style="top: 251px; left: 821px; width: 82px; height: 86px;" title="LBP"></a>
-        <a href="https://henarecollective.co.nz/coming-soon" target="_blank" class="clickable-area" style="top: 120px; left: 922px; width: 326px; height: 402px;" title="The Collective"></a>
-        <div class="clickable-area" style="top: 475px; left: 862px; width: 51px; height: 45px;" title="We Accept BTC"></div>
-        <div class="clickable-area" style="top: 475px; left: 721px; width: 138px; height: 45px;" title="Coming Soon"></div>
-        <div class="clickable-area" style="top: 150px; left: 81px; width: 330px; height: 330px; border-radius: 50%;" title="Hi"></div>
-        <div class="clickable-area" style="top: 547px; left: 865px; width: 119px; height: 66px;" title="Henare Construction - Coming Soon"></div>
-        <div class="clickable-area" style="top: 545px; left: 991px; width: 120px; height: 70px;" title="Henare Roofing and Scaffolding - Coming Soon"></div>
-        <div class="clickable-area" style="top: 545px; left: 1120px; width: 120px; height: 76px;" title="Henare Electrical - Coming Soon"></div>
-        <a href="https://henarestrategic.co.nz/coming-soon" target="_blank" class="clickable-area" style="top: 544px; left: 733px; width: 126px; height: 74px;" title="Henare Strategic"></a>
+        <a href="https://qrco.de/bfDXap" target="_blank" class="clickable-area" style="top: 1px; left: 0px; width: 124px; height: 123px;" data-title="VR Card"></a>
+        <a href="tel:02108555654" target="_blank" class="clickable-area" style="top: 255px; left: 471px; width: 296px; height: 50px;" data-title="Phone"></a>
+        <a href="mailto:tohi@henare.co" target="_blank" class="clickable-area" style="top: 307px; left: 472px; width: 295px; height: 44px;" data-title="Email"></a>
+        <a href="https://henarecollective.co.nz/coming-soon" target="_blank" class="clickable-area" style="top: 353px; left: 472px; width: 354px; height: 46px;" data-title="Website"></a>
+        <a href="https://www.google.com/search?q=northland+whangarei" target="_blank" class="clickable-area" style="top: 401px; left: 472px; width: 354px; height: 43px;" data-title="Service Area"></a>
+        <a href="https://www.nzcb.nz/businesses/henare-construction-limited/" target="_blank" class="clickable-area" style="top: 87px; left: 820px; width: 80px; height: 154px;" data-title="NZCBA"></a>
+        <a href="https://kete-lbp.mbie.govt.nz/practitioner/?id=607e441a-4993-e911-9e2c-005056ae0567" target="_blank" class="clickable-area" style="top: 251px; left: 821px; width: 82px; height: 86px;" data-title="LBP"></a>
+        <a href="https://henarecollective.co.nz/coming-soon" target="_blank" class="clickable-area" style="top: 120px; left: 922px; width: 326px; height: 402px;" data-title="The Collective"></a>
+        <div class="clickable-area" style="top: 475px; left: 862px; width: 51px; height: 45px;" data-title="We Accept BTC"></div>
+        <div class="clickable-area" style="top: 475px; left: 721px; width: 138px; height: 45px;" data-title="Coming Soon"></div>
+        <div class="clickable-area" style="top: 150px; left: 81px; width: 330px; height: 330px; border-radius: 50%;" data-title="Hi"></div>
+        <div class="clickable-area" style="top: 547px; left: 865px; width: 119px; height: 66px;" data-title="Henare Construction - Coming Soon"></div>
+        <div class="clickable-area" style="top: 545px; left: 991px; width: 120px; height: 70px;" data-title="Henare Roofing and Scaffolding - Coming Soon"></div>
+        <div class="clickable-area" style="top: 545px; left: 1120px; width: 120px; height: 76px;" data-title="Henare Electrical - Coming Soon"></div>
+        <a href="https://henarestrategic.co.nz/coming-soon" target="_blank" class="clickable-area" style="top: 544px; left: 733px; width: 126px; height: 74px;" data-title="Henare Strategic"></a>
     </div>
 
     <script>
@@ -98,6 +97,11 @@
             areas.forEach((area, index) => {
                 area.style.animationDelay = `${1.5 + index * 0.1}s`; // Delayed start with stagger
             });
+        });
+
+        // Disable default title tooltip behavior
+        document.querySelectorAll(".clickable-area").forEach(area => {
+            area.removeAttribute("title"); // Remove the title attribute
         });
     </script>
 </body>
