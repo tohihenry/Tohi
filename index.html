@@ -21,24 +21,24 @@
             display: inline-block;
         }
 
-        /* Clickable areas */
+        /* Clickable areas (base styling for all) */
         .clickable-area {
             position: absolute;
             background: transparent; /* Default transparent */
             cursor: pointer;
         }
 
-        /* Initial load animation */
-        .clickable-area.animate-on-load {
+        /* Initial load animation - only for <a> tags */
+        a.clickable-area.animate-on-load {
             animation: pulse 1.5s ease-in-out 1s 1; /* 1.5s duration, 1s delay, 1 pulse */
         }
 
-        /* Hover animation */
-        .clickable-area:hover {
+        /* Hover animation - only for <a> tags */
+        a.clickable-area:hover {
             animation: pulse 1s ease-in-out infinite; /* Instant, continuous pulse */
         }
 
-        /* Custom tooltip (Instant) */
+        /* Custom tooltip (Instant) - applies to both <a> and <div> */
         .clickable-area::after {
             content: attr(data-title);
             position: absolute;
@@ -58,7 +58,7 @@
             z-index: 10;
         }
 
-        /* Show Tooltip on Hover */
+        /* Show Tooltip on Hover - applies to both <a> and <div> */
         .clickable-area:hover::after {
             opacity: 1;
         }
@@ -96,10 +96,10 @@
     </div>
 
     <script>
-        // Trigger initial animation on page load
+        // Trigger initial animation on page load - only for <a> tags
         document.addEventListener("DOMContentLoaded", function() {
-            const areas = document.querySelectorAll(".clickable-area");
-            areas.forEach(area => {
+            const linkAreas = document.querySelectorAll("a.clickable-area"); // Select only <a> tags
+            linkAreas.forEach(area => {
                 // Add initial animation class
                 area.classList.add("animate-on-load");
                 // Remove class after animation ends to prevent re-triggering
@@ -108,8 +108,9 @@
                 }, { once: true });
             });
 
-            // Disable default title tooltip behavior
-            areas.forEach(area => {
+            // Disable default title tooltip behavior for all clickable areas
+            const allAreas = document.querySelectorAll(".clickable-area");
+            allAreas.forEach(area => {
                 area.removeAttribute("title");
             });
         });
