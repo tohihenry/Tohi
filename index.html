@@ -66,6 +66,13 @@
             opacity: 1;
         }
 
+        /* Specific styling for circular areas (LBP and Hi) */
+        .clickable-area.circle-lbp,
+        .clickable-area.circle-hi {
+            clip-path: circle(38px at 860px 295px); /* For LBP, matching coords="860,295,38" */
+            -webkit-clip-path: circle(38px at 860px 295px); /* Safari */
+        }
+
         img {
             max-width: 100%;
             height: auto;
@@ -78,18 +85,18 @@
         <!-- Image without map reference -->
         <img src="https://i.imgur.com/2K8nxOD.png" alt="Tohi Henry - Signature Block">
 
-        <!-- Clickable areas as divs with rectangles -->
+        <!-- Clickable areas as divs with rectangles and circles -->
         <a href="https://qrco.de/bfDXap" target="_blank" class="clickable-area" style="top: 1px; left: 1px; width: 120px; height: 120px;" data-title="VR Card"></a>
         <a href="tel:02108555654" target="_blank" class="clickable-area" style="top: 255px; left: 471px; width: 224px; height: 41px;" data-title="Phone"></a>
         <a href="mailto:tohi@henare.co" target="_blank" class="clickable-area" style="top: 307px; left: 472px; width: 224px; height: 39px;" data-title="Email"></a>
         <a href="https://henarecollective.co.nz/coming-soon" target="_blank" class="clickable-area" style="top: 353px; left: 472px; width: 341px; height: 38px;" data-title="Website"></a>
         <a href="https://www.google.com/search?q=northland+whangarei" target="_blank" class="clickable-area" style="top: 401px; left: 472px; width: 294px; height: 37px;" data-title="Service Area"></a>
-        <a href="https://www.nzcb.nz/businesses/henare-construction-limited/" target="_blank" class="clickable-area" style="top: 87px; left: 820px; width: 80px; height: 154px;" data-title="NZCBA"></a> <!-- Reverted to rectangle -->
-        <a href="https://kete-lbp.mbie.govt.nz/practitioner/?id=607e441a-4993-e911-9e2c-005056ae0567" target="_blank" class="clickable-area" style="top: 251px; left: 821px; width: 82px; height: 86px;" data-title="LBP"></a> <!-- Reverted to rectangle -->
-        <a href="https://henarecollective.co.nz/coming-soon" target="_blank" class="clickable-area" style="top: 120px; left: 922px; width: 326px; height: 402px;" data-title="The Collective"></a> <!-- Reverted to rectangle -->
+        <a href="https://www.nzcb.nz/businesses/henare-construction-limited/" target="_blank" class="clickable-area" style="top: 87px; left: 820px; width: 80px; height: 154px;" data-title="NZCBA"></a> <!-- Rectangle -->
+        <a href="https://kete-lbp.mbie.govt.nz/practitioner/?id=607e441a-4993-e911-9e2c-005056ae0567" target="_blank" class="clickable-area circle-lbp" style="top: 257px; left: 822px; width: 76px; height: 76px;" data-title="LBP"></a> <!-- Circle with fallback -->
+        <a href="https://henarecollective.co.nz/coming-soon" target="_blank" class="clickable-area" style="top: 120px; left: 922px; width: 326px; height: 402px;" data-title="The Collective"></a> <!-- Rectangle -->
         <div class="clickable-area" style="top: 475px; left: 862px; width: 51px; height: 45px;" data-title="We Accept BTC"></div>
         <div class="clickable-area" style="top: 475px; left: 721px; width: 138px; height: 45px;" data-title="Coming Soon"></div>
-        <div class="clickable-area" style="top: 150px; left: 81px; width: 330px; height: 330px; border-radius: 50%;" data-title="Hi"></div>
+        <div class="clickable-area circle-hi" style="top: 150px; left: 81px; width: 330px; height: 330px; border-radius: 50%;" data-title="Hi"></div>
         <div class="clickable-area" style="top: 547px; left: 865px; width: 119px; height: 66px;" data-title="Henare Construction - Website Coming Soon"></div>
         <div class="clickable-area" style="top: 545px; left: 991px; width: 120px; height: 70px;" data-title="Henare Roofing and Scaffolding - Website Coming Soon"></div>
         <div class="clickable-area" style="top: 545px; left: 1120px; width: 120px; height: 76px;" data-title="Henare Electrical - Website Coming Soon"></div>
