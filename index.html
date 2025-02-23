@@ -37,7 +37,7 @@
 
         /* Recurring pulse animation for linked areas */
         a.clickable-area.pulse-ongoing {
-            animation: pulse 1.5s ease-in-out 0s infinite; /* Loops every 1.5s with no initial delay */
+            animation: pulse 2s ease-in-out 0s infinite; /* Loops every 1.5s with no initial delay */
         }
 
         a.clickable-area:hover {
@@ -476,7 +476,7 @@
                         // Use a small delay before reapplying to ensure the animation restarts
                         setTimeout(() => {
                             area.classList.add("pulse-ongoing");
-                        }, 3000); // Small delay to reset the animation (as per your amendment)
+                        }, 2000); // Small delay to reset the animation (as per your amendment)
                     });
                 }, 1500); // Repeat every 7 seconds (as per your amendment)
             }, 1000); // Initial 2-second delay before starting
