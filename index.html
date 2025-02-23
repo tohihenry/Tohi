@@ -183,7 +183,7 @@
             height: 74px;
         }
 
-        /* Media queries for mobile devices (iOS, e.g., iPhone widths: 375px, 414px, 428px) */
+        /* Media queries for mobile devices (iOS, portrait and landscape) */
         @media only screen and (max-width: 768px) {
             .image-container {
                 max-width: 100%;
@@ -195,113 +195,228 @@
                 height: auto;
             }
 
-            .clickable-area[data-title="Save Contact"] {
-                top: 0.7%; /* Increased to compensate for 30% scaling, ~5px / scaled height */
-                left: 0.7%; /* Increased to compensate for 30% scaling, ~5px / scaled width */
-                width: 16.67%; /* Increased by ~30% from 12% to match desktop 110px / scaled width */
-                height: 16.67%; /* Increased by ~30% from 12% to match desktop 110px / scaled height */
+            /* Portrait mode (max-height for typical iPhone portrait, e.g., 926px for iPhone 14 Pro) */
+            @media (max-height: 926px) and (orientation: portrait) {
+                .clickable-area[data-title="Save Contact"] {
+                    top: 0.9%; /* Adjusted for portrait, ~5px / scaled height (increased for 30% scaling) */
+                    left: 0.9%; /* Adjusted for portrait, ~5px / scaled width (increased for 30% scaling) */
+                    width: 21.67%; /* Further increased from 16.67% to compensate for portrait scaling, ~110px / scaled width */
+                    height: 21.67%; /* Further increased from 16.67% to compensate for portrait scaling, ~110px / scaled height */
+                }
+
+                .clickable-area[data-title="Call me"] {
+                    top: 20.2%; /* Adjusted for portrait, ~255px / scaled height (increased for 30% scaling) */
+                    left: 37.2%; /* Adjusted for portrait, ~471px / scaled width (increased for 30% scaling) */
+                    width: 24.3%; /* Further increased from 18.67% to compensate for portrait scaling, ~224px / scaled width */
+                    height: 5.3%; /* Further increased from 4.1% to compensate for portrait scaling, ~40px / scaled height */
+                }
+
+                .clickable-area[data-title="Email me"] {
+                    top: 24.2%; /* Adjusted for portrait, ~305px / scaled height (increased for 30% scaling) */
+                    left: 37.2%; /* Adjusted for portrait, ~472px / scaled width (increased for 30% scaling) */
+                    width: 24.3%; /* Further increased from 18.67% to compensate for portrait scaling, ~224px / scaled width */
+                    height: 4.2%; /* Further increased from 3.2% to compensate for portrait scaling, ~40px / scaled height */
+                }
+
+                .clickable-area[data-title="Visit our Website"] {
+                    top: 28.2%; /* Adjusted for portrait, ~355px / scaled height (increased for 30% scaling) */
+                    left: 37.2%; /* Adjusted for portrait, ~472px / scaled width (increased for 30% scaling) */
+                    width: 37.3%; /* Further increased from 28.67% to compensate for portrait scaling, ~341px / scaled width */
+                    height: 4.2%; /* Further increased from 3.2% to compensate for portrait scaling, ~40px / scaled height */
+                }
+
+                .clickable-area[data-title="Service Area"] {
+                    top: 32.3%; /* Adjusted for portrait, ~405px / scaled height (increased for 30% scaling) */
+                    left: 37.2%; /* Adjusted for portrait, ~472px / scaled width (increased for 30% scaling) */
+                    width: 32%; /* Further increased from 24.58% to compensate for portrait scaling, ~294px / scaled width */
+                    height: 4.2%; /* Further increased from 3.2% to compensate for portrait scaling, ~40px / scaled height */
+                }
+
+                .clickable-area[data-title="NZ Certified Builders Association"] {
+                    top: 7.2%; /* Adjusted for portrait, ~90px / scaled height (increased for 30% scaling) */
+                    left: 65.2%; /* Adjusted for portrait, ~825px / scaled width (increased for 30% scaling) */
+                    width: 8.7%; /* Further increased from 6.67% to compensate for portrait scaling, ~70px / scaled width */
+                    height: 17.3%; /* Further increased from 13.3% to compensate for portrait scaling, ~130px / scaled height */
+                }
+
+                .clickable-area[data-title="Licensed Building Practitioner"] {
+                    top: 20.2%; /* Adjusted for portrait, ~257px / scaled height (increased for 30% scaling) */
+                    left: 64.9%; /* Adjusted for portrait, ~822px / scaled width (increased for 30% scaling) */
+                    width: 7.6%; /* Further increased from 5.85% to compensate for portrait scaling, ~76px / scaled width */
+                    height: 7.6%; /* Further increased from 5.85% to compensate for portrait scaling, ~76px / scaled width */
+                }
+
+                .clickable-area[data-title="The Collective"] {
+                    top: 9.5%; /* Adjusted for portrait, ~120px / scaled height (increased for 30% scaling) */
+                    left: 72.7%; /* Adjusted for portrait, ~922px / scaled width (increased for 30% scaling) */
+                    width: 33.8%; /* Further increased from 26% to compensate for portrait scaling, ~326px / scaled width */
+                    height: 41.2%; /* Further increased from 31.7% to compensate for portrait scaling, ~402px / scaled height */
+                }
+
+                .clickable-area[data-title="We Accept BTC"] {
+                    top: 37.2%; /*Adjusted for portrait, ~475px / scaled height (increased for 30% scaling) */
+                    left: 68.6%; /* Adjusted for portrait, ~862px / scaled width (increased for 30% scaling) */
+                    width: 5.88%; /* Further increased from 4.52% to compensate for portrait scaling, ~51px / scaled width */
+                    height: 5.1%; /* Further increased from 3.9% to compensate for portrait scaling, ~45px / scaled height */
+                }
+
+                .clickable-area[data-title="Coming Soon"] {
+                    top: 37.2%; /* Adjusted for portrait, ~475px / scaled height (increased for 30% scaling) */
+                    left: 57.1%; /* Adjusted for portrait, ~721px / scaled width (increased for 30% scaling) */
+                    width: 15.2%; /* Further increased from 11.7% to compensate for portrait scaling, ~138px / scaled width */
+                    height: 5.1%; /* Further increased from 3.9% to compensate for portrait scaling, ~45px / scaled height */
+                }
+
+                .clickable-area[data-title="Henare Construction - Website Coming Soon"] {
+                    top: 43.7%; /* Adjusted for portrait, ~547px / scaled height (increased for 30% scaling) */
+                    left: 68.7%; /* Adjusted for portrait, ~865px / scaled width (increased for 30% scaling) */
+                    width: 12.7%; /* Further increased from 9.74% to compensate for portrait scaling, ~119px / scaled width */
+                    height: 6.8%; /* Further increased from 5.2% to compensate for portrait scaling, ~66px / scaled height */
+                }
+
+                .clickable-area[data-title="Henare Roofing and Scaffolding - Website Coming Soon"] {
+                    top: 43.6%; /* Adjusted for portrait, ~545px / scaled height (increased for 30% scaling) */
+                    left: 79.2%; /* Adjusted for portrait, ~991px / scaled width (increased for 30% scaling) */
+                    width: 12.7%; /* Further increased from 9.74% to compensate for portrait scaling, ~120px / scaled width */
+                    height: 7.6%; /* Further increased from 5.85% to compensate for portrait scaling, ~70px / scaled height */
+                }
+
+                .clickable-area[data-title="Henare Electrical - Website Coming Soon"] {
+                    top: 43.6%; /* Adjusted for portrait, ~545px / scaled height (increased for 30% scaling) */
+                    left: 89.4%; /* Adjusted for portrait, ~1120px / scaled width (increased for 30% scaling) */
+                    width: 12.7%; /* Further increased from 9.74% to compensate for portrait scaling, ~120px / scaled width */
+                    height: 8.3%; /* Further increased from 6.35% to compensate for portrait scaling, ~76px / scaled height */
+                }
+
+                .clickable-area[data-title="Henare Strategic"] {
+                    top: 43.6%; /* Adjusted for portrait, ~544px / scaled height (increased for 30% scaling) */
+                    left: 58.5%; /* Adjusted for portrait, ~733px / scaled width (increased for 30% scaling) */
+                    width: 13.5%; /* Further increased from 10.42% to compensate for portrait scaling, ~126px / scaled width */
+                    height: 7.6%; /* Further increased from 5.85% to compensate for portrait scaling, ~74px / scaled height */
+                }
+
+                /* Ensure circles scale correctly in portrait on mobile */
+                .clickable-area.circle-lbp {
+                    width: 7.6%; /* Further increased from 5.85% to compensate for portrait scaling, ~76px / scaled width */
+                    height: 7.6%; /* Further increased from 5.85% to compensate for portrait scaling, ~76px / scaled width */
+                }
+
+                .clickable-area.circle-hi {
+                    width: 33.8%; /* Further increased from 26% to compensate for portrait scaling, ~330px / scaled width */
+                    height: 33.8%; /* Further increased from 26% to compensate for portrait scaling, ~330px / scaled width */
+                }
             }
 
-            .clickable-area[data-title="Call me"] {
-                top: 15.5%; /* Slightly adjusted, ~255px / scaled height */
-                left: 28.5%; /* Slightly adjusted, ~471px / scaled width */
-                width: 18.67%; /* Increased by ~30% from 14% to match desktop 224px / scaled width */
-                height: 4.1%; /* Increased by ~30% from 3% to match desktop 40px / scaled height */
-            }
+            /* Landscape mode (max-width for typical iPhone landscape, e.g., 926px for iPhone 14 Pro) */
+            @media (max-width: 926px) and (orientation: landscape) {
+                .clickable-area[data-title="Save Contact"] {
+                    top: 0.7%; /* Adjusted for landscape, ~5px / scaled height */
+                    left: 0.7%; /* Adjusted for landscape, ~5px / scaled width */
+                    width: 16.67%; /* Matches existing landscape scaling, ~110px / scaled width */
+                    height: 16.67%; /* Matches existing landscape scaling, ~110px / scaled height */
+                }
 
-            .clickable-area[data-title="Email me"] {
-                top: 18.5%; /* Slightly adjusted, ~305px / scaled height */
-                left: 28.5%; /* Slightly adjusted, ~472px / scaled width */
-                width: 18.67%; /* Increased by ~30% from 14% to match desktop 224px / scaled width */
-                height: 3.2%; /* Increased by ~30% from 2.5% to match desktop 40px / scaled height */
-            }
+                .clickable-area[data-title="Call me"] {
+                    top: 15.5%; /* Adjusted for landscape, ~255px / scaled height */
+                    left: 28.5%; /* Adjusted for landscape, ~471px / scaled width */
+                    width: 18.67%; /* Matches existing landscape scaling, ~224px / scaled width */
+                    height: 4.1%; /* Matches existing landscape scaling, ~40px / scaled height */
+                }
 
-            .clickable-area[data-title="Visit our Website"] {
-                top: 21.5%; /* Slightly adjusted, ~355px / scaled height */
-                left: 28.5%; /* Slightly adjusted, ~472px / scaled width */
-                width: 28.67%; /* Increased by ~30% from 21% to match desktop 341px / scaled width */
-                height: 3.2%; /* Increased by ~30% from 2.5% to match desktop 40px / scaled height */
-            }
+                .clickable-area[data-title="Email me"] {
+                    top: 18.5%; /* Adjusted for landscape, ~305px / scaled height */
+                    left: 28.5%; /* Adjusted for landscape, ~472px / scaled width */
+                    width: 18.67%; /* Matches existing landscape scaling, ~224px / scaled width */
+                    height: 3.2%; /* Matches existing landscape scaling, ~40px / scaled height */
+                }
 
-            .clickable-area[data-title="Service Area"] {
-                top: 24.5%; /* Slightly adjusted, ~405px / scaled height */
-                left: 28.5%; /* Slightly adjusted, ~472px / scaled width */
-                width: 24.58%; /* Increased by ~30% from 18% to match desktop 294px / scaled width */
-                height: 3.2%; /* Increased by ~30% from 2.5% to match desktop 40px / scaled height */
-            }
+                .clickable-area[data-title="Visit our Website"] {
+                    top: 21.5%; /* Adjusted for landscape, ~355px / scaled height */
+                    left: 28.5%; /* Adjusted for landscape, ~472px / scaled width */
+                    width: 28.67%; /* Matches existing landscape scaling, ~341px / scaled width */
+                    height: 3.2%; /* Matches existing landscape scaling, ~40px / scaled height */
+                }
 
-            .clickable-area[data-title="NZ Certified Builders Association"] {
-                top: 5.5%; /* Slightly adjusted, ~90px / scaled height */
-                left: 50%; /* Slightly adjusted, ~825px / scaled width */
-                width: 6.67%; /* Increased by ~30% from 5% to match desktop 70px / scaled width */
-                height: 13.3%; /* Increased by ~30% from 10% to match desktop 130px / scaled height */
-            }
+                .clickable-area[data-title="Service Area"] {
+                    top: 24.5%; /* Adjusted for landscape, ~405px / scaled height */
+                    left: 28.5%; /* Adjusted for landscape, ~472px / scaled width */
+                    width: 24.58%; /* Matches existing landscape scaling, ~294px / scaled width */
+                    height: 3.2%; /* Matches existing landscape scaling, ~40px / scaled height */
+                }
 
-            .clickable-area[data-title="Licensed Building Practitioner"] {
-                top: 15.5%; /* Slightly adjusted, ~257px / scaled height */
-                left: 49.5%; /* Slightly adjusted, ~822px / scaled width */
-                width: 5.85%; /* Increased by ~30% from 4.5% to match desktop 76px / scaled width */
-                height: 5.85%; /* Increased by ~30% from 4.5% to match desktop 76px / scaled width */
-            }
+                .clickable-area[data-title="NZ Certified Builders Association"] {
+                    top: 5.5%; /* Adjusted for landscape, ~90px / scaled height */
+                    left: 50%; /* Adjusted for landscape, ~825px / scaled width */
+                    width: 6.67%; /* Matches existing landscape scaling, ~70px / scaled width */
+                    height: 13.3%; /* Matches existing landscape scaling, ~130px / scaled height */
+                }
 
-            .clickable-area[data-title="The Collective"] {
-                top: 7.5%; /* Slightly adjusted, ~120px / scaled height */
-                left: 55.5%; /* Slightly adjusted, ~922px / scaled width */
-                width: 26%; /* Increased by ~30% from 20% to match desktop 326px / scaled width */
-                height: 31.7%; /* Increased by ~30% from 25% to match desktop 402px / scaled height */
-            }
+                .clickable-area[data-title="Licensed Building Practitioner"] {
+                    top: 15.5%; /* Adjusted for landscape, ~257px / scaled height */
+                    left: 49.5%; /* Adjusted for landscape, ~822px / scaled width */
+                    width: 5.85%; /* Matches existing landscape scaling, ~76px / scaled width */
+                    height: 5.85%; /* Matches existing landscape scaling, ~76px / scaled width */
+                }
 
-            .clickable-area[data-title="We Accept BTC"] {
-                top: 28.5%; /* Slightly adjusted, ~475px / scaled height */
-                left: 52.5%; /* Slightly adjusted, ~862px / scaled width */
-                width: 4.52%; /* Increased by ~30% from 3.5% to match desktop 51px / scaled width */
-                height: 3.9%; /* Increased by ~30% from 3% to match desktop 45px / scaled height */
-            }
+                .clickable-area[data-title="The Collective"] {
+                    top: 7.5%; /* Adjusted for landscape, ~120px / scaled height */
+                    left: 55.5%; /* Adjusted for landscape, ~922px / scaled width */
+                    width: 26%; /* Matches existing landscape scaling, ~326px / scaled width */
+                    height: 31.7%; /* Matches existing landscape scaling, ~402px / scaled height */
+                }
 
-            .clickable-area[data-title="Coming Soon"] {
-                top: 28.5%; /* Slightly adjusted, ~475px / scaled height */
-                left: 43.5%; /* Slightly adjusted, ~721px / scaled width */
-                width: 11.7%; /* Increased by ~30% from 9% to match desktop 138px / scaled width */
-                height: 3.9%; /* Increased by ~30% from 3% to match desktop 45px / scaled height */
-            }
+                .clickable-area[data-title="We Accept BTC"] {
+                    top: 28.5%; /* Adjusted for landscape, ~475px / scaled height */
+                    left: 52.5%; /* Adjusted for landscape, ~862px / scaled width */
+                    width: 4.52%; /* Matches existing landscape scaling, ~51px / scaled width */
+                    height: 3.9%; /* Matches existing landscape scaling, ~45px / scaled height */
+                }
 
-            .clickable-area[data-title="Henare Construction - Website Coming Soon"] {
-                top: 33.5%; /* Slightly adjusted, ~547px / scaled height */
-                left: 52.5%; /* Slightly adjusted, ~865px / scaled width */
-                width: 9.74%; /* Increased by ~30% from 7.5% to match desktop 119px / scaled width */
-                height: 5.2%; /* Increased by ~30% from 4% to match desktop 66px / scaled height */
-            }
+                .clickable-area[data-title="Coming Soon"] {
+                    top: 28.5%; /* Adjusted for landscape, ~475px / scaled height */
+                    left: 43.5%; /* Adjusted for landscape, ~721px / scaled width */
+                    width: 11.7%; /* Matches existing landscape scaling, ~138px / scaled width */
+                    height: 3.9%; /* Matches existing landscape scaling, ~45px / scaled height */
+                }
 
-            .clickable-area[data-title="Henare Roofing and Scaffolding - Website Coming Soon"] {
-                top: 33.5%; /* Slightly adjusted, ~545px / scaled height */
-                left: 60.5%; /* Slightly adjusted, ~991px / scaled width */
-                width: 9.74%; /* Increased by ~30% from 7.5% to match desktop 120px / scaled width */
-                height: 5.85%; /* Increased by ~30% from 4.5% to match desktop 70px / scaled height */
-            }
+                .clickable-area[data-title="Henare Construction - Website Coming Soon"] {
+                    top: 33.5%; /* Adjusted for landscape, ~547px / scaled height */
+                    left: 52.5%; /* Adjusted for landscape, ~865px / scaled width */
+                    width: 9.74%; /* Matches existing landscape scaling, ~119px / scaled width */
+                    height: 5.2%; /* Matches existing landscape scaling, ~66px / scaled height */
+                }
 
-            .clickable-area[data-title="Henare Electrical - Website Coming Soon"] {
-                top: 33.5%; /* Slightly adjusted, ~545px / scaled height */
-                left: 67.5%; /* Slightly adjusted, ~1120px / scaled width */
-                width: 9.74%; /* Increased by ~30% from 7.5% to match desktop 120px / scaled width */
-                height: 6.35%; /* Increased by ~30% from 5% to match desktop 76px / scaled height */
-            }
+                .clickable-area[data-title="Henare Roofing and Scaffolding - Website Coming Soon"] {
+                    top: 33.5%; /* Adjusted for landscape, ~545px / scaled height */
+                    left: 60.5%; /* Adjusted for landscape, ~991px / scaled width */
+                    width: 9.74%; /* Matches existing landscape scaling, ~120px / scaled width */
+                    height: 5.85%; /* Matches existing landscape scaling, ~70px / scaled height */
+                }
 
-            .clickable-area[data-title="Henare Strategic"] {
-                top: 33.5%; /* Slightly adjusted, ~544px / scaled height */
-                left: 44.5%; /* Slightly adjusted, ~733px / scaled width */
-                width: 10.42%; /* Increased by ~30% from 8% to match desktop 126px / scaled width */
-                height: 5.85%; /* Increased by ~30% from 4.5% to match desktop 74px / scaled height */
-            }
+                .clickable-area[data-title="Henare Electrical - Website Coming Soon"] {
+                    top: 33.5%; /* Adjusted for landscape, ~545px / scaled height */
+                    left: 67.5%; /* Adjusted for landscape, ~1120px / scaled width */
+                    width: 9.74%; /* Matches existing landscape scaling, ~120px / scaled width */
+                    height: 6.35%; /* Matches existing landscape scaling, ~76px / scaled height */
+                }
 
-            /* Ensure circles scale correctly on mobile */
-            .clickable-area.circle-lbp {
-                width: 5.85%; /* Increased by ~30% from 4.5% to match desktop 76px / scaled width */
-                height: 5.85%; /* Increased by ~30% from 4.5% to match desktop 76px / scaled width */
-            }
+                .clickable-area[data-title="Henare Strategic"] {
+                    top: 33.5%; /* Adjusted for landscape, ~544px / scaled height */
+                    left: 44.5%; /* Adjusted for landscape, ~733px / scaled width */
+                    width: 10.42%; /* Matches existing landscape scaling, ~126px / scaled width */
+                    height: 5.85%; /* Matches existing landscape scaling, ~74px / scaled height */
+                }
 
-            .clickable-area.circle-hi {
-                width: 26%; /* Increased by ~30% from 20% to match desktop 330px / scaled width */
-                height: 26%; /* Increased by ~30% from 20% to match desktop 330px / scaled width */
+                /* Ensure circles scale correctly in landscape on mobile */
+                .clickable-area.circle-lbp {
+                    width: 5.85%; /* Matches existing landscape scaling, ~76px / scaled width */
+                    height: 5.85%; /* Matches existing landscape scaling, ~76px / scaled width */
+                }
+
+                .clickable-area.circle-hi {
+                    width: 26%; /* Matches existing landscape scaling, ~330px / scaled width */
+                    height: 26%; /* Matches existing landscape scaling, ~330px / scaled width */
+                }
             }
         }
     </style>
