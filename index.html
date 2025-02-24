@@ -15,12 +15,12 @@
             100% { transform: scale(1); background: transparent; }
         }
 
-        /* Image Container */
         .image-container {
             position: relative;
-            width: 100%;
-            max-width: 1250px; /* Ensures correct aspect ratio */
-            aspect-ratio: 2 / 1;
+            display: inline-block;
+            max-width: 100%;
+            width: 1250px; /* Match image intrinsic width */
+            aspect-ratio: 2 / 1; /* Maintain aspect ratio */
             margin: auto;
         }
 
@@ -36,10 +36,9 @@
             background: transparent;
             cursor: pointer;
             pointer-events: auto;
-            transform-origin: center;
         }
 
-        /* Pulse effect */
+        /* Pulse Effect */
         .clickable-area.pulse-ongoing {
             animation: pulse 2s ease-in-out infinite;
         }
@@ -70,7 +69,7 @@
             opacity: 1;
         }
 
-        /* **PERFECTLY ALIGNED CLICKABLE AREAS** */
+        /* **PERFECTLY SCALED CLICKABLE AREAS** */
         .clickable-area[data-title="Save Contact"] {
             top: 3%;
             left: 2%;
@@ -182,7 +181,7 @@
             border-radius: 50%;
         }
 
-        /* Mobile Scaling */
+        /* Ensure Clickable Areas Scale Properly on Mobile */
         @media (max-width: 768px) {
             .image-container {
                 max-width: 100%;
