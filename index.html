@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tohi Henry Signature Block</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
     <style>
         /* Pulse Animation */
         @keyframes pulse {
@@ -15,14 +16,14 @@
             100% { transform: scale(1); background: transparent; }
         }
 
-        /* Container for image & clickable areas */
+        /* Main Container */
         .image-container {
             position: relative;
             display: block;
             max-width: 100%;
-            width: 1250px; /* Matches image intrinsic width */
-            aspect-ratio: 2 / 1; /* Maintains correct scaling */
-            margin: auto;
+            width: 1250px; /* Ensures proper scaling */
+            height: auto;
+            margin: 0 auto;
         }
 
         .image-container img {
@@ -39,16 +40,17 @@
             pointer-events: auto;
         }
 
-        /* Pulse Effect */
-        .clickable-area.pulse-ongoing {
+        /* Pulse Animation */
+        a.clickable-area.pulse-ongoing {
             animation: pulse 2s ease-in-out infinite;
         }
 
-        .clickable-area:hover {
+        /* Hover Effect */
+        a.clickable-area:hover {
             animation: pulse 1s ease-in-out infinite;
         }
 
-        /* Tooltips */
+        /* Tooltip (Instant) */
         .clickable-area::after {
             content: attr(data-title);
             position: absolute;
@@ -63,43 +65,42 @@
             font-size: 14px;
             white-space: nowrap;
             opacity: 0;
+            pointer-events: none;
             transition: opacity 0.1s ease-in-out;
+            z-index: 10;
         }
 
         .clickable-area:hover::after {
             opacity: 1;
         }
 
-        /* Responsive Clickable Area Scaling */
-        .image-container .clickable-area {
-            transform-origin: top left;
-            width: calc(100% * (110 / 1250));
-            height: calc(100% * (110 / 625));
+        /* Desktop Click Areas (Using Exact Pixel Positions) */
+        .clickable-area[data-title="Save Contact"] { top: 5px; left: 5px; width: 110px; height: 110px; }
+        .clickable-area[data-title="Call me"] { top: 255px; left: 471px; width: 224px; height: 40px; }
+        .clickable-area[data-title="Email me"] { top: 305px; left: 472px; width: 224px; height: 40px; }
+        .clickable-area[data-title="Visit our Website"] { top: 355px; left: 472px; width: 341px; height: 40px; }
+        .clickable-area[data-title="Service Area"] { top: 405px; left: 472px; width: 294px; height: 40px; }
+        .clickable-area[data-title="NZ Certified Builders Association"] { top: 90px; left: 825px; width: 70px; height: 130px; }
+        .clickable-area[data-title="Licensed Building Practitioner"] { top: 257px; left: 822px; width: 76px; height: 76px; }
+        .clickable-area[data-title="The Collective"] { top: 120px; left: 922px; width: 326px; height: 402px; }
+        .clickable-area[data-title="Henare Strategic"] { top: 544px; left: 733px; width: 126px; height: 74px; }
+
+        /* Responsive Scaling for Mobile */
+        @media (max-width: 768px) {
+            .image-container {
+                max-width: 100%;
+                width: auto;
+            }
+
+            .clickable-area {
+                transform: scale(0.8); /* Shrink clickable areas for mobile */
+            }
         }
 
-        /* **PERFECTLY SCALED CLICKABLE AREAS** */
-        .clickable-area[data-title="Save Contact"] { top: 3%; left: 2%; width: 10%; height: 16%; }
-        .clickable-area[data-title="Call me"] { top: 41%; left: 38%; width: 22%; height: 6%; }
-        .clickable-area[data-title="Email me"] { top: 49%; left: 38%; width: 22%; height: 6%; }
-        .clickable-area[data-title="Visit our Website"] { top: 57%; left: 38%; width: 24%; height: 6%; }
-        .clickable-area[data-title="Service Area"] { top: 65%; left: 38%; width: 22%; height: 6%; }
-        .clickable-area[data-title="NZ Certified Builders Association"] { top: 12%; left: 76%; width: 7%; height: 15%; }
-        .clickable-area[data-title="Licensed Building Practitioner"] { top: 37%; left: 76%; width: 6%; height: 6%; }
-        .clickable-area[data-title="The Collective"] { top: 14%; left: 80%; width: 18%; height: 50%; }
-        .clickable-area[data-title="We Accept BTC"] { top: 80%; left: 89%; width: 5%; height: 5%; }
-        .clickable-area[data-title="Coming Soon"] { top: 80%; left: 75%; width: 8%; height: 5%; }
-        .clickable-area[data-title="Henare Construction - Website Coming Soon"] { top: 89%; left: 89%; width: 10%; height: 7%; }
-        .clickable-area[data-title="Henare Roofing and Scaffolding - Website Coming Soon"] { top: 89%; left: 94%; width: 10%; height: 7%; }
-        .clickable-area[data-title="Henare Electrical - Website Coming Soon"] { top: 89%; left: 99%; width: 10%; height: 7%; }
-        .clickable-area[data-title="Henare Strategic"] { top: 89%; left: 80%; width: 10%; height: 7%; }
-
-        /* Ensure Circles Scale */
-        .clickable-area.circle-lbp { width: 6%; height: 6%; border-radius: 50%; }
-        .clickable-area.circle-hi { width: 26%; height: 26%; border-radius: 50%; }
-
-        /* Mobile Scaling Fix */
-        @media (max-width: 768px) {
-            .image-container { max-width: 100%; }
+        @media (max-width: 480px) {
+            .clickable-area {
+                transform: scale(0.6); /* Further shrink clickable areas */
+            }
         }
     </style>
 </head>
@@ -109,25 +110,45 @@
         <img src="https://i.imgur.com/2K8nxOD.png" alt="Tohi Henry - Signature Block">
 
         <!-- Clickable Areas -->
-        <a href="https://qrco.de/bfDXap" target="_blank" class="clickable-area" data-title="Save Contact"></a>
-        <a href="tel:02108555654" target="_blank" class="clickable-area" data-title="Call me"></a>
-        <a href="mailto:tohi@henare.co" target="_blank" class="clickable-area" data-title="Email me"></a>
-        <a href="https://henarecollective.co.nz/coming-soon" target="_blank" class="clickable-area" data-title="Visit our Website"></a>
-        <a href="https://www.google.com/search?q=northland+whangarei" target="_blank" class="clickable-area" data-title="Service Area"></a>
-        <a href="https://www.nzcb.nz/businesses/henare-construction-limited/" target="_blank" class="clickable-area" data-title="NZ Certified Builders Association"></a>
-        <a href="https://kete-lbp.mbie.govt.nz/practitioner/" target="_blank" class="clickable-area circle-lbp" data-title="Licensed Building Practitioner"></a>
-        <a href="https://henarecollective.co.nz/coming-soon" target="_blank" class="clickable-area" data-title="The Collective"></a>
-        <a href="https://henarestrategic.co.nz/coming-soon" target="_blank" class="clickable-area" data-title="Henare Strategic"></a>
+        <a href="https://qrco.de/bfDXap" target="_blank" class="clickable-area pulse-ongoing" data-title="Save Contact"></a>
+        <a href="tel:02108555654" target="_blank" class="clickable-area pulse-ongoing" data-title="Call me"></a>
+        <a href="mailto:tohi@henare.co" target="_blank" class="clickable-area pulse-ongoing" data-title="Email me"></a>
+        <a href="https://henarecollective.co.nz/coming-soon" target="_blank" class="clickable-area pulse-ongoing" data-title="Visit our Website"></a>
+        <a href="https://www.google.com/search?q=northland+whangarei" target="_blank" class="clickable-area pulse-ongoing" data-title="Service Area"></a>
+        <a href="https://www.nzcb.nz/businesses/henare-construction-limited/" target="_blank" class="clickable-area pulse-ongoing" data-title="NZ Certified Builders Association"></a>
+        <a href="https://kete-lbp.mbie.govt.nz/practitioner/?id=607e441a-4993-e911-9e2c-005056ae0567" target="_blank" class="clickable-area pulse-ongoing" data-title="Licensed Building Practitioner"></a>
+        <a href="https://henarecollective.co.nz/coming-soon" target="_blank" class="clickable-area pulse-ongoing" data-title="The Collective"></a>
+        <a href="https://henarestrategic.co.nz/coming-soon" target="_blank" class="clickable-area pulse-ongoing" data-title="Henare Strategic"></a>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const areas = document.querySelectorAll("a.clickable-area");
+            const linkAreas = document.querySelectorAll("a.clickable-area");
 
-            // Start pulse effect on page load
+            // Function to start pulse animation
+            function startRecurringPulse() {
+                linkAreas.forEach(area => {
+                    area.classList.add("pulse-ongoing");
+                });
+            }
+
+            // Delay initial pulse by 1.5s, then loop every 7s
             setTimeout(() => {
-                areas.forEach(area => area.classList.add("pulse-ongoing"));
+                startRecurringPulse();
+                setInterval(() => {
+                    linkAreas.forEach(area => {
+                        area.classList.remove("pulse-ongoing");
+                        setTimeout(() => area.classList.add("pulse-ongoing"), 2480);
+                    });
+                }, 7000);
             }, 1500);
+
+            // Ensure tooltips always show on hover
+            linkAreas.forEach(area => {
+                area.removeAttribute("title"); // Remove default tooltip
+            });
+
+            console.log("Script loaded successfully for clickable areas");
         });
     </script>
 </body>
