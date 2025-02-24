@@ -15,12 +15,13 @@
             100% { transform: scale(1); background: transparent; }
         }
 
+        /* Container for image & clickable areas */
         .image-container {
             position: relative;
-            display: inline-block;
+            display: block;
             max-width: 100%;
-            width: 1250px; /* Match image intrinsic width */
-            aspect-ratio: 2 / 1; /* Maintain aspect ratio */
+            width: 1250px; /* Matches image intrinsic width */
+            aspect-ratio: 2 / 1; /* Maintains correct scaling */
             margin: auto;
         }
 
@@ -69,128 +70,36 @@
             opacity: 1;
         }
 
+        /* Responsive Clickable Area Scaling */
+        .image-container .clickable-area {
+            transform-origin: top left;
+            width: calc(100% * (110 / 1250));
+            height: calc(100% * (110 / 625));
+        }
+
         /* **PERFECTLY SCALED CLICKABLE AREAS** */
-        .clickable-area[data-title="Save Contact"] {
-            top: 3%;
-            left: 2%;
-            width: 10%;
-            height: 16%;
-        }
+        .clickable-area[data-title="Save Contact"] { top: 3%; left: 2%; width: 10%; height: 16%; }
+        .clickable-area[data-title="Call me"] { top: 41%; left: 38%; width: 22%; height: 6%; }
+        .clickable-area[data-title="Email me"] { top: 49%; left: 38%; width: 22%; height: 6%; }
+        .clickable-area[data-title="Visit our Website"] { top: 57%; left: 38%; width: 24%; height: 6%; }
+        .clickable-area[data-title="Service Area"] { top: 65%; left: 38%; width: 22%; height: 6%; }
+        .clickable-area[data-title="NZ Certified Builders Association"] { top: 12%; left: 76%; width: 7%; height: 15%; }
+        .clickable-area[data-title="Licensed Building Practitioner"] { top: 37%; left: 76%; width: 6%; height: 6%; }
+        .clickable-area[data-title="The Collective"] { top: 14%; left: 80%; width: 18%; height: 50%; }
+        .clickable-area[data-title="We Accept BTC"] { top: 80%; left: 89%; width: 5%; height: 5%; }
+        .clickable-area[data-title="Coming Soon"] { top: 80%; left: 75%; width: 8%; height: 5%; }
+        .clickable-area[data-title="Henare Construction - Website Coming Soon"] { top: 89%; left: 89%; width: 10%; height: 7%; }
+        .clickable-area[data-title="Henare Roofing and Scaffolding - Website Coming Soon"] { top: 89%; left: 94%; width: 10%; height: 7%; }
+        .clickable-area[data-title="Henare Electrical - Website Coming Soon"] { top: 89%; left: 99%; width: 10%; height: 7%; }
+        .clickable-area[data-title="Henare Strategic"] { top: 89%; left: 80%; width: 10%; height: 7%; }
 
-        .clickable-area[data-title="Call me"] {
-            top: 41%;
-            left: 38%;
-            width: 22%;
-            height: 6%;
-        }
+        /* Ensure Circles Scale */
+        .clickable-area.circle-lbp { width: 6%; height: 6%; border-radius: 50%; }
+        .clickable-area.circle-hi { width: 26%; height: 26%; border-radius: 50%; }
 
-        .clickable-area[data-title="Email me"] {
-            top: 49%;
-            left: 38%;
-            width: 22%;
-            height: 6%;
-        }
-
-        .clickable-area[data-title="Visit our Website"] {
-            top: 57%;
-            left: 38%;
-            width: 24%;
-            height: 6%;
-        }
-
-        .clickable-area[data-title="Service Area"] {
-            top: 65%;
-            left: 38%;
-            width: 22%;
-            height: 6%;
-        }
-
-        .clickable-area[data-title="NZ Certified Builders Association"] {
-            top: 12%;
-            left: 76%;
-            width: 7%;
-            height: 15%;
-        }
-
-        .clickable-area[data-title="Licensed Building Practitioner"] {
-            top: 37%;
-            left: 76%;
-            width: 6%;
-            height: 6%;
-        }
-
-        .clickable-area[data-title="The Collective"] {
-            top: 14%;
-            left: 80%;
-            width: 18%;
-            height: 50%;
-        }
-
-        .clickable-area[data-title="We Accept BTC"] {
-            top: 80%;
-            left: 89%;
-            width: 5%;
-            height: 5%;
-        }
-
-        .clickable-area[data-title="Coming Soon"] {
-            top: 80%;
-            left: 75%;
-            width: 8%;
-            height: 5%;
-        }
-
-        .clickable-area[data-title="Henare Construction - Website Coming Soon"] {
-            top: 89%;
-            left: 89%;
-            width: 10%;
-            height: 7%;
-        }
-
-        .clickable-area[data-title="Henare Roofing and Scaffolding - Website Coming Soon"] {
-            top: 89%;
-            left: 94%;
-            width: 10%;
-            height: 7%;
-        }
-
-        .clickable-area[data-title="Henare Electrical - Website Coming Soon"] {
-            top: 89%;
-            left: 99%;
-            width: 10%;
-            height: 7%;
-        }
-
-        .clickable-area[data-title="Henare Strategic"] {
-            top: 89%;
-            left: 80%;
-            width: 10%;
-            height: 7%;
-        }
-
-        /* Circle Scaling */
-        .clickable-area.circle-lbp {
-            width: 6%;
-            height: 6%;
-            border-radius: 50%;
-        }
-
-        .clickable-area.circle-hi {
-            width: 26%;
-            height: 26%;
-            border-radius: 50%;
-        }
-
-        /* Ensure Clickable Areas Scale Properly on Mobile */
+        /* Mobile Scaling Fix */
         @media (max-width: 768px) {
-            .image-container {
-                max-width: 100%;
-            }
-
-            .clickable-area {
-                width: auto;
-                height: auto;
-            }
+            .image-container { max-width: 100%; }
         }
     </style>
 </head>
