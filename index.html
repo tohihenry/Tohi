@@ -6,20 +6,43 @@
     <title>Tohi Henry Signature Block</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <style>
-        /* Pulse Animation with softer colors */
-        @keyframes pulse {
-            0% { transform: scale(1); background: transparent; }
-            25% { transform: scale(1.05); background: rgba(200, 200, 200, 0.3); }
-            50% { transform: scale(1.1); background: rgba(100, 150, 255, 0.4); }
-            75% { transform: scale(1.05); background: rgba(200, 200, 200, 0.3); }
-            100% { transform: scale(1); background: transparent; }
+        /* Silver frost breathe - visible against white */
+        @keyframes breathe {
+            0%, 100% { 
+                background: rgba(0, 0, 0, 0);
+                box-shadow: 0 0 0px rgba(0, 0, 0, 0);
+            }
+            50% { 
+                background: rgba(50, 70, 110, 0.14);
+                box-shadow: 0 0 25px rgba(70, 90, 130, 0.22), 0 0 50px rgba(70, 90, 130, 0.08);
+            }
+        }
+
+        /* Shimmer sweep - visible light pass */
+        @keyframes shimmer {
+            0% { left: -100%; opacity: 0; }
+            15% { opacity: 1; }
+            85% { opacity: 1; }
+            100% { left: 150%; opacity: 0; }
+        }
+
+        /* Hover - stronger frost */
+        @keyframes hoverGlow {
+            0%, 100% { 
+                background: rgba(50, 70, 110, 0.16);
+                box-shadow: 0 0 20px rgba(70, 90, 130, 0.3), 0 0 45px rgba(70, 90, 130, 0.12);
+            }
+            50% { 
+                background: rgba(50, 70, 110, 0.22);
+                box-shadow: 0 0 35px rgba(70, 90, 130, 0.4), 0 0 70px rgba(70, 90, 130, 0.15);
+            }
         }
 
         .image-container {
             position: relative;
             display: inline-block;
-            max-width: none; /* Ensure no scaling on desktop */
-            width: 1650px; /* Match image width for desktop precision */
+            max-width: none;
+            width: 1650px;
             height: auto;
         }
 
@@ -27,61 +50,112 @@
             position: absolute;
             background: transparent;
             cursor: pointer;
-            pointer-events: auto; /* Ensure clickability */
+            pointer-events: auto;
+            border-radius: 4px;
+            overflow: hidden;
         }
 
-        /* Initial load animation - now just a placeholder for JavaScript */
-        a.clickable-area.animate-on-load {
-            animation: none; /* Remove the initial animation */
-        }
-
-        /* Recurring pulse animation for linked areas */
-        a.clickable-area.pulse-ongoing {
-            animation: pulse 2s ease-in-out  infinite; /* Loops every 1.5s with no initial delay */
-        }
-
-        a.clickable-area:hover {
-            animation: pulse 1s ease-in-out infinite;
-        }
-
-        /* Custom tooltip (Instant) */
-        .clickable-area::after {
-            content: attr(data-title);
+        /* Tooltip container - sits outside the overflow:hidden element */
+        .tooltip {
             position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            font-family: Candara, sans-serif;
-            padding: 5px 10px;
-            border-radius: 5px;
+            background: rgba(15, 20, 35, 0.92);
+            color: #f0f4ff;
+            font-family: Candara, 'Segoe UI', sans-serif;
             font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            padding: 8px 14px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
             white-space: nowrap;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.1s ease-in-out;
-            z-index: 10;
+            transition: opacity 0.15s ease-in-out;
+            z-index: 1000;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 8px rgba(100, 130, 180, 0.1);
         }
 
-        .clickable-area:hover::after {
+        .tooltip.visible {
             opacity: 1;
         }
+
+        /* Initial load animation - placeholder */
+        a.clickable-area.animate-on-load {
+            animation: none;
+        }
+
+        /* Ongoing breathing glow */
+        a.clickable-area.pulse-ongoing {
+            animation: breathe 3s ease-in-out infinite;
+        }
+
+        /* Shimmer light sweep */
+        a.clickable-area.pulse-ongoing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.5),
+                rgba(255, 255, 255, 0.85),
+                rgba(255, 255, 255, 0.5),
+                transparent
+            );
+            animation: shimmer 4s ease-in-out infinite;
+            animation-delay: var(--shimmer, 0s);
+            pointer-events: none;
+        }
+
+        /* Stagger shimmer delays */
+        a.clickable-area.pulse-ongoing:nth-child(1)::before { --shimmer: 0s; }
+        a.clickable-area.pulse-ongoing:nth-child(2)::before { --shimmer: 0.5s; }
+        a.clickable-area.pulse-ongoing:nth-child(3)::before { --shimmer: 1.0s; }
+        a.clickable-area.pulse-ongoing:nth-child(4)::before { --shimmer: 1.5s; }
+        a.clickable-area.pulse-ongoing:nth-child(5)::before { --shimmer: 2.0s; }
+        a.clickable-area.pulse-ongoing:nth-child(6)::before { --shimmer: 2.5s; }
+        a.clickable-area.pulse-ongoing:nth-child(7)::before { --shimmer: 3.0s; }
+        a.clickable-area.pulse-ongoing:nth-child(8)::before { --shimmer: 3.5s; }
+        a.clickable-area.pulse-ongoing:nth-child(9)::before { --shimmer: 0.3s; }
+        a.clickable-area.pulse-ongoing:nth-child(13)::before { --shimmer: 1.3s; }
+        a.clickable-area.pulse-ongoing:nth-child(15)::before { --shimmer: 2.3s; }
+
+        /* Hover state */
+        a.clickable-area:hover {
+            animation: hoverGlow 1.5s ease-in-out infinite;
+        }
+
+        a.clickable-area:hover::before {
+            animation: shimmer 2s ease-in-out infinite;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.5),
+                rgba(255, 255, 255, 0.85),
+                rgba(255, 255, 255, 0.5),
+                transparent
+            );
+        }
+
+
 
         /* Specific styling for circular areas (LBP and Hi) on desktop */
         .clickable-area.circle-lbp,
         .clickable-area.circle-hi {
-            border-radius: 50%; /* Create a circle using border-radius */
+            border-radius: 50%;
         }
 
         .clickable-area.circle-lbp {
-            width: 76px; /* Desktop: Diameter ≈ 2 * 38px radius */
-            height: 76px; /* Desktop: Diameter ≈ 2 * 38px radius */
+            width: 76px;
+            height: 76px;
         }
 
         .clickable-area.circle-hi {
-            width: 330px; /* Desktop: From your existing Hi style */
-            height: 330px; /* Desktop: From your existing Hi style */
+            width: 330px;
+            height: 330px;
         }
 
         /* Desktop positioning and dimensions (default, above 768px) */
@@ -162,7 +236,7 @@
             height: 66px;
         }
 
-        .clickable-area[data-title="Henare Roofing and Scaffolding - Website Coming Soon"] {
+        .clickable-area[data-title="Henare Roofing and Scaffolding"] {
             top: 545px;
             left: 991px;
             width: 120px;
@@ -204,11 +278,36 @@
         <div class="clickable-area pulse-ongoing" data-title="We Accept BTC"></div>
         <div class="clickable-area pulse-ongoing" data-title="Coming Soon"></div>
         <div class="clickable-area pulse-ongoing circle-hi" data-title="Hi"></div>
-        <div class="clickable-area pulse-ongoing" data-title="Henare Roofing and Scaffolding - Website Coming Soon"></div>
+        <a href="https://roofing.henare.co" target="_blank" class="clickable-area pulse-ongoing" data-title="Henare Roofing and Scaffolding"></a>
         <div class="clickable-area pulse-ongoing" data-title="Henare Electrical - Website Coming Soon"></div>
         <a href="https://henarestrategic.co.nz/" target="_blank" class="clickable-area pulse-ongoing" data-title="Henare Strategic"></a>
+        <!-- Tooltip element -->
+        <div class="tooltip" id="tooltip"></div>
     </div>
 
+    <script>
+        const tooltip = document.getElementById('tooltip');
+        const areas = document.querySelectorAll('.clickable-area[data-title]');
 
+        areas.forEach(area => {
+            area.addEventListener('mouseenter', () => {
+                const title = area.getAttribute('data-title');
+                if (!title || title === 'Hi') return;
+                tooltip.textContent = title;
+                tooltip.classList.add('visible');
+
+                const rect = area.getBoundingClientRect();
+                const containerRect = area.closest('.image-container').getBoundingClientRect();
+                const left = (rect.left - containerRect.left) + (rect.width / 2) - (tooltip.offsetWidth / 2);
+                const top = (rect.top - containerRect.top) + rect.height + 8;
+                tooltip.style.left = left + 'px';
+                tooltip.style.top = top + 'px';
+            });
+
+            area.addEventListener('mouseleave', () => {
+                tooltip.classList.remove('visible');
+            });
+        });
+    </script>
 </body>
 </html>
